@@ -1,6 +1,7 @@
 <template >
     <div class="container">
         <h1>Yineng</h1>
+        <h1>Test</h1>
         
     </div>
 </template>
