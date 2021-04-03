@@ -21,11 +21,15 @@
   "homepage": "https://github.com/acs106104/Yineng#readme",
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.2.0",
+    "deepmerge": "^4.2.2",
     "parcel-bundler": "^1.12.5",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
     "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
     "vue": "^2.6.12",
-    "vue-hot-reload-api": "^2.3.4"
+    "vue-hot-reload-api": "^2.3.4",
+    "vuetify": "^2.4.9"
   }
 }
