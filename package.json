@@ -1,0 +1,31 @@
+{
+  "name": "Yineng",
+  "version": "1.0.0",
+  "description": "YiNeng company website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html --public-url ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acs106104/Yineng.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acs106104/Yineng/issues"
+  },
+  "homepage": "https://github.com/acs106104/Yineng#readme",
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.2.0",
+    "parcel-bundler": "^1.12.5",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-hot-reload-api": "^2.3.4"
+  }
+}
