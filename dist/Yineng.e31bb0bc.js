@@ -53449,7 +53449,9 @@ var opts = {};
 var _default = new _vuetify.default(opts);
 
 exports.default = _default;
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","vuetify":"node_modules/vuetify/dist/vuetify.js","vuetify/dist/vuetify.min.css":"node_modules/vuetify/dist/vuetify.min.css"}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","vuetify":"node_modules/vuetify/dist/vuetify.js","vuetify/dist/vuetify.min.css":"node_modules/vuetify/dist/vuetify.min.css"}],"src/assets/img/logo-golden.png":[function(require,module,exports) {
+module.exports = "/logo-golden.ca2e39ad.png";
+},{}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
 var map = Object.create(null)
@@ -53734,16 +53736,10 @@ exports.default = void 0;
 
 var _vue = _interopRequireDefault(require("vue"));
 
+var _logoGolden = _interopRequireDefault(require("./src/assets/img/logo-golden.png"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -53770,6 +53766,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = _vue.default.extend({
   data: function data() {
     return {
+      logo: _logoGolden.default,
       bundler: "Parcel"
     };
   }
@@ -53788,42 +53785,32 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-app", [
-    _c(
-      "div",
-      { staticClass: "container" },
-      [
-        _c("h1", [_vm._v("Yineng")]),
-        _vm._v(" "),
-        _c("v-btn", [_vm._v("hello")]),
-        _vm._v(" "),
-        _c(
-          "v-btn",
-          {
-            staticClass: "ma-2",
-            attrs: { text: "", icon: "", color: "blue lighten-2" }
-          },
-          [_c("v-icon", [_vm._v("mdi-thumb-up")])],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "v-btn",
-          {
-            staticClass: "ma-2",
-            attrs: { text: "", icon: "", color: "red lighten-2" }
-          },
-          [_c("v-icon", [_vm._v("mdi-thumb-down")])],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/logo.77e46b61.png" } })
-        ])
-      ],
-      1
-    )
-  ])
+  return _c(
+    "v-app",
+    { staticClass: "container" },
+    [
+      _c(
+        "v-app-bar",
+        {
+          attrs: {
+            app: "",
+            "shrink-on-scroll": "",
+            color: "rgb(0,0,0,0.1)",
+            "collapse-on-scroll": true
+          }
+        },
+        [
+          _c("v-img", {
+            attrs: { "max-height": "80", "max-width": "80", src: _vm.logo }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-main", [_c("h1", [_vm._v("\n      hello\n    ")])])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -53858,7 +53845,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo.png":[["logo.77e46b61.png","src/assets/img/logo.png"],"src/assets/img/logo.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-golden.png":"src/assets/img/logo-golden.png","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
