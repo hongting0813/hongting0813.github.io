@@ -5,17 +5,19 @@
       shrink-on-scroll
       color="rgb(0,0,0,0.1)"
       :collapse-on-scroll="true"
+      height="140"
+      min-width="240"
     >
       <v-img
-        max-height="80"
-        max-width="80"
+        class="ma-5 ml-3 mt-2"
+        max-height="100"
+        max-width="175"
         :src="logo"
-      />
-
+      ></v-img>
     </v-app-bar>
-      <v-main> 
+      <v-main class="ma-8"> 
       <h1>
-        hello
+        億能手袋電壓製品廠
       </h1>
       </v-main>
   </v-app>
@@ -23,7 +25,7 @@
 
 <script>
 import Vue from "vue";
-import logo from './src/assets/img/logo-golden.png'
+import logo from './src/assets/img/logo-word.png'
 
 export default Vue.extend({
   data() {
@@ -38,12 +40,8 @@ export default Vue.extend({
 <style scoped>
 .container {
   max-width: none;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-  background-blend-mode: multiply,multiply;
+  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+  background-blend-mode: multiply;
 }
-.bg { 
-	/* Generated with http://gradient.quasi.ink */
-	background-size: cover;
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAADCAYAAABfwxXFAAAAAXNSR0IArs4c6QAAAGBJREFUCB1jtNW3/29mp8Owb+9ZBjYWfgZGxu8M3NxcDFzcPAxMRsbKDC+fvWDw8vRgYGZmYODnBypgYGJ4//49A5Orqx3Dj28fGE6fOMnAwcYAFPzI8OXrV4Y/f/4wAAC/Phu5I0EVFAAAAABJRU5ErkJggg==");
-}
+
 </style>

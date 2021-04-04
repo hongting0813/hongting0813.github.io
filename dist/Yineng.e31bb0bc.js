@@ -53449,8 +53449,8 @@ var opts = {};
 var _default = new _vuetify.default(opts);
 
 exports.default = _default;
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","vuetify":"node_modules/vuetify/dist/vuetify.js","vuetify/dist/vuetify.min.css":"node_modules/vuetify/dist/vuetify.min.css"}],"src/assets/img/logo-golden.png":[function(require,module,exports) {
-module.exports = "/logo-golden.ca2e39ad.png";
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","vuetify":"node_modules/vuetify/dist/vuetify.js","vuetify/dist/vuetify.min.css":"node_modules/vuetify/dist/vuetify.min.css"}],"src/assets/img/logo-word.png":[function(require,module,exports) {
+module.exports = "/logo-word.3836684c.png";
 },{}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
@@ -53736,7 +53736,7 @@ exports.default = void 0;
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _logoGolden = _interopRequireDefault(require("./src/assets/img/logo-golden.png"));
+var _logoWord = _interopRequireDefault(require("./src/assets/img/logo-word.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53763,10 +53763,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 var _default = _vue.default.extend({
   data: function data() {
     return {
-      logo: _logoGolden.default,
+      logo: _logoWord.default,
       bundler: "Parcel"
     };
   }
@@ -53796,18 +53798,23 @@ exports.default = _default;
             app: "",
             "shrink-on-scroll": "",
             color: "rgb(0,0,0,0.1)",
-            "collapse-on-scroll": true
+            "collapse-on-scroll": true,
+            height: "140",
+            "min-width": "240"
           }
         },
         [
           _c("v-img", {
-            attrs: { "max-height": "80", "max-width": "80", src: _vm.logo }
+            staticClass: "ma-5 ml-3 mt-2",
+            attrs: { "max-height": "100", "max-width": "175", src: _vm.logo }
           })
         ],
         1
       ),
       _vm._v(" "),
-      _c("v-main", [_c("h1", [_vm._v("\n      hello\n    ")])])
+      _c("v-main", { staticClass: "ma-8" }, [
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")])
+      ])
     ],
     1
   )
@@ -53845,7 +53852,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-golden.png":"src/assets/img/logo-golden.png","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -53890,7 +53897,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49206" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58027" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
