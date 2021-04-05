@@ -35,7 +35,7 @@
         "camelcase":"warn",
         "no-constant-condition":"off",
         "eqeqeq":"off",
-        "vue/html-self-closing": ["off", {
+        "vue/html-self-closing": ["error", {
             "html": {
               "void": "never",
               "normal": "always",

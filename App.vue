@@ -8,51 +8,27 @@
       height="140"
       min-width="240"
     >
-      <v-app-bar-nav-icon
-        dark
-        @click.stop="drawer = !drawer"
-      >
-      </v-app-bar-nav-icon>
-
       <v-img
         class="ma-5 ml-3 mt-2"
         max-height="100"
         max-width="175"
         :src="logo"
       />
+      <v-spacer />
+      <v-row>
+        <v-col>
+          <v-btn class="mr-2">
+            Introduce
+          </v-btn>
+          <v-btn class="mr-2">
+            mdi-filter
+          </v-btn>
+          <v-btn class="mr-2">
+            mdi-dots-vertical
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-app-bar>
-
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-      width="280px"
-    >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          active-class="deep-purple--text text--accent-4"
-        >
-          <v-list-item>
-            <v-list-item-title>Foo</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Bar</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Fizz</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Buzz</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
 
     <v-main class="ma-8">
       <h1>
