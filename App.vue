@@ -37,6 +37,7 @@
       <v-card
         width="600"
         height="600"
+        class="silver"
       >
         <v-container fluid>
           <v-row>
@@ -335,5 +336,8 @@ export default Vue.extend({
 .btn:focus {
   outline: 0px dotted #c0c0c0;
 }
+.silver{
+background-image: url('./src/assets/img/bg.jpg')
 
+}
 </style>

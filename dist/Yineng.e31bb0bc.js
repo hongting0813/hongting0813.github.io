@@ -54012,6 +54012,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 // import bear001 from './src/assets/img/bear001.jpg'
 // import bear002 from './src/assets/img/bear002.jpg'
 // import bear003 from './src/assets/img/bear003.jpg'
@@ -54113,7 +54114,7 @@ exports.default = _default;
           _vm._v(" "),
           _c(
             "v-card",
-            { attrs: { width: "600", height: "600" } },
+            { staticClass: "silver", attrs: { width: "600", height: "600" } },
             [
               _c(
                 "v-container",
@@ -54469,7 +54470,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","./src/assets/img/mmexport1612454841217.jpg":"src/assets/img/mmexport1612454841217.jpg","./src/assets/img/mmexport1612454842972.jpg":"src/assets/img/mmexport1612454842972.jpg","./src/assets/img/mmexport1612454844586.jpg":"src/assets/img/mmexport1612454844586.jpg","./src/assets/img/mmexport1612454847071.jpg":"src/assets/img/mmexport1612454847071.jpg","./src/assets/img/mmexport1612454850384.jpg":"src/assets/img/mmexport1612454850384.jpg","./src/assets/img/mmexport1612454848532.jpg":"src/assets/img/mmexport1612454848532.jpg","./src/assets/img/mmexport1612454852058(1).jpg":"src/assets/img/mmexport1612454852058(1).jpg","./src/assets/img/mmexport1612454853643.jpg":"src/assets/img/mmexport1612454853643.jpg","./src/assets/img/mmexport1612454852058.jpg":"src/assets/img/mmexport1612454852058.jpg","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","./src/assets/img/mmexport1612454841217.jpg":"src/assets/img/mmexport1612454841217.jpg","./src/assets/img/mmexport1612454842972.jpg":"src/assets/img/mmexport1612454842972.jpg","./src/assets/img/mmexport1612454844586.jpg":"src/assets/img/mmexport1612454844586.jpg","./src/assets/img/mmexport1612454847071.jpg":"src/assets/img/mmexport1612454847071.jpg","./src/assets/img/mmexport1612454850384.jpg":"src/assets/img/mmexport1612454850384.jpg","./src/assets/img/mmexport1612454848532.jpg":"src/assets/img/mmexport1612454848532.jpg","./src/assets/img/mmexport1612454852058(1).jpg":"src/assets/img/mmexport1612454852058(1).jpg","./src/assets/img/mmexport1612454853643.jpg":"src/assets/img/mmexport1612454853643.jpg","./src/assets/img/mmexport1612454852058.jpg":"src/assets/img/mmexport1612454852058.jpg","./src\\assets\\img\\bg.jpg":[["bg.b3363b3f.jpg","src/assets/img/bg.jpg"],"src/assets/img/bg.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./index.css");
@@ -54516,7 +54517,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53009" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57094" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
