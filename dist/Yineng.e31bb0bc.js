@@ -53780,6 +53780,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 var _default = _vue.default.extend({
   data: function data() {
     return {
@@ -53816,7 +53818,8 @@ exports.default = _default;
             color: "rgb(0,0,0,0.1)",
             "collapse-on-scroll": true,
             height: "140",
-            "min-width": "240"
+            "min-width": "240",
+            "min-height": "108"
           }
         },
         [
@@ -53825,38 +53828,26 @@ exports.default = _default;
             attrs: { "max-height": "100", "max-width": "175", src: _vm.logo }
           }),
           _vm._v(" "),
-          _c("v-spacer"),
-          _vm._v(" "),
-          _c(
-            "v-row",
-            [
-              _c(
-                "v-col",
-                [
-                  _c("v-btn", { staticClass: "mr-2" }, [
-                    _vm._v("\n          Introduce\n        ")
-                  ]),
-                  _vm._v(" "),
-                  _c("v-btn", { staticClass: "mr-2" }, [
-                    _vm._v("\n          mdi-filter\n        ")
-                  ]),
-                  _vm._v(" "),
-                  _c("v-btn", { staticClass: "mr-2" }, [
-                    _vm._v("\n          mdi-dots-vertical\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          )
+          _c("v-spacer")
         ],
         1
       ),
       _vm._v(" "),
-      _c("v-main", { staticClass: "ma-8" }, [
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")])
-      ])
+      _c(
+        "v-main",
+        { staticClass: "ma-8" },
+        [
+          _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+          _vm._v(" "),
+          _c("v-img", {
+            attrs: {
+              src:
+                "http://up.deskcity.org/pic/0a/eb/d9/0aebd9555874e8722f4be5e515bfdf3a.jpg"
+            }
+          })
+        ],
+        1
+      )
     ],
     1
   )

@@ -7,6 +7,7 @@
       :collapse-on-scroll="true"
       height="140"
       min-width="240"
+      min-height="108"
     >
       <v-img
         class="ma-5 ml-3 mt-2"
@@ -15,7 +16,7 @@
         :src="logo"
       />
       <v-spacer />
-      <v-row>
+      <!-- <v-row>
         <v-col>
           <v-btn class="mr-2">
             Introduce
@@ -27,13 +28,14 @@
             mdi-dots-vertical
           </v-btn>
         </v-col>
-      </v-row>
+      </v-row> -->
     </v-app-bar>
 
     <v-main class="ma-8">
       <h1>
         億能手袋電壓製品廠
       </h1>
+      <v-img src="http://up.deskcity.org/pic/0a/eb/d9/0aebd9555874e8722f4be5e515bfdf3a.jpg" />
     </v-main>
   </v-app>
 </template>
