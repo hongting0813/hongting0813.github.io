@@ -3,6 +3,6 @@ import vuetify from './src/plugins/vuetify'
 import App from './App.vue'
 
 new Vue({
-  vuetify,
-  render: createElement => createElement(App)
+    vuetify,
+    render: createElement => createElement(App)
 }).$mount('#app')

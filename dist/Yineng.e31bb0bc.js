@@ -53444,7 +53444,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _vue.default.use(_vuetify.default);
 
-var opts = {};
+var opts = {
+  theme: {
+    themes: {
+      light: {
+        primary: '#323232',
+        secondary: '#b0bec5',
+        accent: '#8c9eff',
+        error: '#b71c1c'
+      }
+    }
+  }
+};
 
 var _default = new _vuetify.default(opts);
 
@@ -53999,14 +54010,14 @@ var _default = _vue.default.extend({
 });
 
 exports.default = _default;
-        var $e8afa4 = exports.default || module.exports;
+        var $73e201 = exports.default || module.exports;
       
-      if (typeof $e8afa4 === 'function') {
-        $e8afa4 = $e8afa4.options;
+      if (typeof $73e201 === 'function') {
+        $73e201 = $73e201.options;
       }
     
         /* template */
-        Object.assign($e8afa4, (function () {
+        Object.assign($73e201, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -54025,7 +54036,7 @@ exports.default = _default;
             "collapse-on-scroll": true,
             height: "140",
             "min-width": "240",
-            "min-height": "108"
+            "min-height": "120"
           }
         },
         [
@@ -54040,8 +54051,47 @@ exports.default = _default;
       ),
       _vm._v(" "),
       _c(
-        "v-main",
-        { staticClass: "ma-8" },
+        "div",
+        { staticClass: "navbtn" },
+        _vm._l(_vm.links, function(link) {
+          return _c(
+            "button",
+            {
+              key: link,
+              staticClass: "btn draw-border",
+              attrs: { color: "white", text: "", rounded: "" }
+            },
+            [_vm._v("\n      " + _vm._s(link) + "\n    ")]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("v-main", { staticClass: "ma-8" }, [
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "v-footer",
+        { attrs: { color: "primary lighten-1", padless: "" } },
         [
           _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
           _vm._v(" "),
@@ -54325,7 +54375,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-e8afa4",
+            _scopeId: "data-v-73e201",
             functional: undefined
           };
         })());
@@ -54338,9 +54388,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e8afa4', $e8afa4);
+            api.createRecord('$73e201', $73e201);
           } else {
-            api.reload('$e8afa4', $e8afa4);
+            api.reload('$73e201', $73e201);
           }
         }
 
@@ -54396,7 +54446,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62110" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62251" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
