@@ -1,3 +1,4 @@
+import './index.css'
 import Vue from 'vue'
 import vuetify from './src/plugins/vuetify'
 import App from './App.vue'

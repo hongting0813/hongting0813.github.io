@@ -117,7 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/vue/dist/vue.runtime.esm.js":[function(require,module,exports) {
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"index.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/vue/dist/vue.runtime.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -53353,74 +53425,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /******/ })["default"];
 });
 
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/vuetify/dist/vuetify.min.css":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/vuetify/dist/vuetify.min.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -53975,6 +53980,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import bear001 from './src/assets/img/bear001.jpg'
 // import bear002 from './src/assets/img/bear002.jpg'
 // import bear003 from './src/assets/img/bear003.jpg'
@@ -54004,20 +54041,21 @@ var _default = _vue.default.extend({
         src: _mmexport8.default
       }, {
         src: _mmexport9.default
-      }]
+      }],
+      links: ['關於我們', '合作品牌', '公司成員', '聯絡我們']
     };
   }
 });
 
 exports.default = _default;
-        var $73e201 = exports.default || module.exports;
+        var $e8afa4 = exports.default || module.exports;
       
-      if (typeof $73e201 === 'function') {
-        $73e201 = $73e201.options;
+      if (typeof $e8afa4 === 'function') {
+        $e8afa4 = $e8afa4.options;
       }
     
         /* template */
-        Object.assign($73e201, (function () {
+        Object.assign($e8afa4, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -54067,31 +54105,9 @@ exports.default = _default;
         0
       ),
       _vm._v(" "),
-      _c("v-main", { staticClass: "ma-8" }, [
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-        _vm._v(" "),
-        _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")])
-      ]),
-      _vm._v(" "),
       _c(
-        "v-footer",
-        { attrs: { color: "primary lighten-1", padless: "" } },
+        "v-main",
+        { staticClass: "ma-8" },
         [
           _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
           _vm._v(" "),
@@ -54363,6 +54379,58 @@ exports.default = _default;
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-footer",
+        { attrs: { color: "primary lighten-1", padless: "" } },
+        [
+          _c(
+            "v-row",
+            { attrs: { justify: "center", "no-gutters": "" } },
+            [
+              _vm._l(_vm.links, function(link) {
+                return _c(
+                  "v-btn",
+                  {
+                    key: link,
+                    staticClass: "my-2",
+                    attrs: { color: "white", text: "", rounded: "" }
+                  },
+                  [_vm._v("\n        " + _vm._s(link) + "\n      ")]
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                {
+                  staticClass: "primary lighten-2 py-4 text-center white--text",
+                  attrs: { cols: "12" }
+                },
+                [
+                  _c("v-row", { attrs: { justify: "center" } }, [
+                    _vm._v("\n          億能手袋典雅製品廠\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-row", { attrs: { justify: "center" } }, [
+                    _vm._v("\n          Yineng Manufactory\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-row", { attrs: { justify: "center" } }, [
+                    _vm._v(
+                      "\n          ©" + _vm._s(new Date().getFullYear()) + " — "
+                    ),
+                    _c("strong", [_vm._v("Yineng")]),
+                    _vm._v(" 版權所有\n        ")
+                  ])
+                ],
+                1
+              )
+            ],
+            2
+          )
+        ],
+        1
       )
     ],
     1
@@ -54375,7 +54443,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-73e201",
+            _scopeId: "data-v-e8afa4",
             functional: undefined
           };
         })());
@@ -54388,9 +54456,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$73e201', $73e201);
+            api.createRecord('$e8afa4', $e8afa4);
           } else {
-            api.reload('$73e201', $73e201);
+            api.reload('$e8afa4', $e8afa4);
           }
         }
 
@@ -54403,6 +54471,8 @@ render._withStripped = true
     })();
 },{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","./src/assets/img/mmexport1612454841217.jpg":"src/assets/img/mmexport1612454841217.jpg","./src/assets/img/mmexport1612454842972.jpg":"src/assets/img/mmexport1612454842972.jpg","./src/assets/img/mmexport1612454844586.jpg":"src/assets/img/mmexport1612454844586.jpg","./src/assets/img/mmexport1612454847071.jpg":"src/assets/img/mmexport1612454847071.jpg","./src/assets/img/mmexport1612454850384.jpg":"src/assets/img/mmexport1612454850384.jpg","./src/assets/img/mmexport1612454848532.jpg":"src/assets/img/mmexport1612454848532.jpg","./src/assets/img/mmexport1612454852058(1).jpg":"src/assets/img/mmexport1612454852058(1).jpg","./src/assets/img/mmexport1612454853643.jpg":"src/assets/img/mmexport1612454853643.jpg","./src/assets/img/mmexport1612454852058.jpg":"src/assets/img/mmexport1612454852058.jpg","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
+
+require("./index.css");
 
 var _vue = _interopRequireDefault(require("vue"));
 
@@ -54418,7 +54488,7 @@ new _vue.default({
     return createElement(_App.default);
   }
 }).$mount('#app');
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/plugins/vuetify":"src/plugins/vuetify.js","./App.vue":"App.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./index.css":"index.css","vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/plugins/vuetify":"src/plugins/vuetify.js","./App.vue":"App.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -54446,7 +54516,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62251" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53009" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

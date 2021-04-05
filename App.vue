@@ -203,7 +203,15 @@
           class="primary lighten-2 py-4 text-center white--text"
           cols="12"
         >
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          <v-row justify="center">
+            億能手袋典雅製品廠
+          </v-row>
+          <v-row justify="center">
+            Yineng Manufactory
+          </v-row>
+          <v-row justify="center">
+            ©{{ new Date().getFullYear() }}&nbsp;—&nbsp;<strong>Yineng</strong>&nbsp;版權所有
+          </v-row>
         </v-col>
       </v-row>
     </v-footer>
@@ -271,7 +279,7 @@ export default Vue.extend({
   z-index: 10;
 
 }
-@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
 .draw-border {
   box-shadow: inset 0 0 0 3px #ffe593aa;
   color: #ffe593aa;
@@ -308,18 +316,17 @@ export default Vue.extend({
   height: 100%;
 }
 .draw-border:hover::before {
-  transition-delay: 0s, 0s, 0.25s;
+  transition-delay: 0s, 0s, 0.15s;
 }
 .draw-border:hover::after {
-  transition-delay: 0s, 0.25s, 0s;
+  transition-delay: 0s, 0.15s, 0s;
 }
-
 .btn {
   background: none;
   border: none;
   cursor: pointer;
   line-height: 0.5;
-  font: 700 1.2rem 'cwTeXYen', sans-serif;
+  font: 700 1.2rem 'cwTeXYen',  sans-serif;
   padding: 0.5em 1em;
   letter-spacing: 0.05rem;
   margin: 0.2em 0.8em;
