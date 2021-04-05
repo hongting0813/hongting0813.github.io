@@ -53451,6 +53451,24 @@ var _default = new _vuetify.default(opts);
 exports.default = _default;
 },{"vue":"node_modules/vue/dist/vue.runtime.esm.js","vuetify":"node_modules/vuetify/dist/vuetify.js","vuetify/dist/vuetify.min.css":"node_modules/vuetify/dist/vuetify.min.css"}],"src/assets/img/logo-word.png":[function(require,module,exports) {
 module.exports = "/logo-word.3836684c.png";
+},{}],"src/assets/img/mmexport1612454841217.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454841217.358bab44.jpg";
+},{}],"src/assets/img/mmexport1612454842972.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454842972.4c1a97e2.jpg";
+},{}],"src/assets/img/mmexport1612454844586.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454844586.38ffb245.jpg";
+},{}],"src/assets/img/mmexport1612454847071.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454847071.8d22ebfc.jpg";
+},{}],"src/assets/img/mmexport1612454850384.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454850384.d05dd605.jpg";
+},{}],"src/assets/img/mmexport1612454848532.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454848532.dd27cfaa.jpg";
+},{}],"src/assets/img/mmexport1612454852058(1).jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454852058(1).965b17d5.jpg";
+},{}],"src/assets/img/mmexport1612454853643.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454853643.e956b282.jpg";
+},{}],"src/assets/img/mmexport1612454852058.jpg":[function(require,module,exports) {
+module.exports = "/mmexport1612454852058.6c5b3f8d.jpg";
 },{}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
@@ -53738,6 +53756,24 @@ var _vue = _interopRequireDefault(require("vue"));
 
 var _logoWord = _interopRequireDefault(require("./src/assets/img/logo-word.png"));
 
+var _mmexport = _interopRequireDefault(require("./src/assets/img/mmexport1612454841217.jpg"));
+
+var _mmexport2 = _interopRequireDefault(require("./src/assets/img/mmexport1612454842972.jpg"));
+
+var _mmexport3 = _interopRequireDefault(require("./src/assets/img/mmexport1612454844586.jpg"));
+
+var _mmexport4 = _interopRequireDefault(require("./src/assets/img/mmexport1612454847071.jpg"));
+
+var _mmexport5 = _interopRequireDefault(require("./src/assets/img/mmexport1612454850384.jpg"));
+
+var _mmexport6 = _interopRequireDefault(require("./src/assets/img/mmexport1612454848532.jpg"));
+
+var _mmexport7 = _interopRequireDefault(require("./src/assets/img/mmexport1612454852058(1).jpg"));
+
+var _mmexport8 = _interopRequireDefault(require("./src/assets/img/mmexport1612454853643.jpg"));
+
+var _mmexport9 = _interopRequireDefault(require("./src/assets/img/mmexport1612454852058.jpg"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //
@@ -53782,12 +53818,182 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// import bear001 from './src/assets/img/bear001.jpg'
+// import bear002 from './src/assets/img/bear002.jpg'
+// import bear003 from './src/assets/img/bear003.jpg'
+// import bear004 from './src/assets/img/bear004.jpg'
+// import bear005 from './src/assets/img/bear005.jpg'
 var _default = _vue.default.extend({
   data: function data() {
     return {
       logo: _logoWord.default,
       bundler: 'Parcel',
-      drawer: false
+      drawer: false,
+      gallery: [{
+        src: _mmexport.default
+      }, {
+        src: _mmexport2.default
+      }, {
+        src: _mmexport3.default
+      }, {
+        src: _mmexport4.default
+      }, {
+        src: _mmexport5.default
+      }, {
+        src: _mmexport6.default
+      }, {
+        src: _mmexport7.default
+      }, {
+        src: _mmexport8.default
+      }, {
+        src: _mmexport9.default
+      }]
     };
   }
 });
@@ -53839,12 +54045,272 @@ exports.default = _default;
         [
           _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
           _vm._v(" "),
-          _c("v-img", {
-            attrs: {
-              src:
-                "http://up.deskcity.org/pic/0a/eb/d9/0aebd9555874e8722f4be5e515bfdf3a.jpg"
-            }
-          })
+          _c(
+            "v-card",
+            { attrs: { width: "600", height: "600" } },
+            [
+              _c(
+                "v-container",
+                { attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[0]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10),
+                                  "aspect-ratio": "1"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[1]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10),
+                                  "aspect-ratio": "1"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[2]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10),
+                                  "aspect-ratio": "1"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[6]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10),
+                                  "aspect-ratio": "1"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[7]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10),
+                                  "aspect-ratio": "1"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[8]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10),
+                                  "aspect-ratio": "1"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "8" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[3]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10)
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pa-1 d-flex child-flex",
+                          attrs: { cols: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "d-flex",
+                              attrs: { flat: "", tile: "" }
+                            },
+                            [
+                              _c("v-img", {
+                                staticClass: "grey lighten-2",
+                                attrs: {
+                                  src: _vm.gallery[5]["src"],
+                                  "lazy-src":
+                                    "https://picsum.photos/10/6?image=" +
+                                    (1 * 5 + 10),
+                                  "aspect-ratio": "1"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
         ],
         1
       )
@@ -53885,7 +54351,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","./src/assets/img/mmexport1612454841217.jpg":"src/assets/img/mmexport1612454841217.jpg","./src/assets/img/mmexport1612454842972.jpg":"src/assets/img/mmexport1612454842972.jpg","./src/assets/img/mmexport1612454844586.jpg":"src/assets/img/mmexport1612454844586.jpg","./src/assets/img/mmexport1612454847071.jpg":"src/assets/img/mmexport1612454847071.jpg","./src/assets/img/mmexport1612454850384.jpg":"src/assets/img/mmexport1612454850384.jpg","./src/assets/img/mmexport1612454848532.jpg":"src/assets/img/mmexport1612454848532.jpg","./src/assets/img/mmexport1612454852058(1).jpg":"src/assets/img/mmexport1612454852058(1).jpg","./src/assets/img/mmexport1612454853643.jpg":"src/assets/img/mmexport1612454853643.jpg","./src/assets/img/mmexport1612454852058.jpg":"src/assets/img/mmexport1612454852058.jpg","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
