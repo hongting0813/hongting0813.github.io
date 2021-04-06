@@ -2,19 +2,18 @@
   <v-app class="my-container">
     <v-app-bar
       app
-      shrink-on-scroll
-      color="rgb(0,0,0,0.1)"
-      :collapse-on-scroll="true"
-      height="140"
-      min-width="240"
-      min-height="120"
+      color="rgb(0,0,0,0.8)"
+      height="100"
+      min-width="200"
+      min-height="100"
     >
-      <v-img
-        class="ma-5 ml-3 mt-2"
-        max-height="100"
-        max-width="175"
-        :src="logo"
-      />
+      <a href="./">
+        <v-img
+          class="ma-5 ml-3 mt-2"
+          max-height="85"
+          max-width="125"
+          :src="logo"
+        /></a>
       <v-spacer />
     </v-app-bar>
     <div class="navbtn">
@@ -30,11 +29,7 @@
       </button>
     </div>
     <v-main class="ma-8">
-      <h1>
-        億能手袋電壓製品廠
-      </h1>
-
-      <v-card
+      <!-- <v-card
         width="600"
         height="600"
         class="silver"
@@ -179,39 +174,82 @@
             </v-col>
           </v-row>
         </v-container>
-      </v-card>
+      </v-card> -->
       <!-- <v-img src="http://up.deskcity.org/pic/0a/eb/d9/0aebd9555874e8722f4be5e515bfdf3a.jpg" /> -->
+      <div class="bigTitle whiteText centerText elementCenter wow bounceInUp">
+        億能幫你達成10,000,000個可能
+      </div>
     </v-main>
+    <!-- footer -->
     <v-footer
-      color="primary lighten-1"
+      color="primary lighten-2"
       padless
     >
       <v-row
         justify="center"
         no-gutters
       >
-        <v-btn
-          v-for="link in links"
-          :key="link"
-          color="white"
-          text
-          rounded
-          class="my-2"
+        <v-col
+          class="primary lighten-1 py-4 text-center white--text"
+          cols="12"
         >
-          {{ link }}
-        </v-btn>
+          <v-row
+            justify="center"
+            align="center"
+            class="pa-2"
+          >
+            <v-col
+              cols="2"
+            >
+              <v-row justify="center">
+                <v-col>
+                  <v-row justify="center">
+                    <v-icon>
+                      mdi-phone
+                    </v-icon>
+                    <h4>電話 TEL</h4>
+                  </v-row>
+                  <v-row justify="center">
+                    {{ footer.tel }}
+                  </v-row>
+                </v-col>
+              </v-row>
+            </v-col>
+            <v-col
+              cols="4"
+            >
+              <v-row justify="center">
+                <v-col>
+                  <v-row justify="center">
+                    <v-icon>
+                      mdi-map-marker
+                    </v-icon>
+                    <h4>地址 address</h4>
+                  </v-row>
+                  <v-row justify="center">
+                    {{ footer.add[0] }}
+                  </v-row>
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-col>
         <v-col
           class="primary lighten-2 py-4 text-center white--text"
           cols="12"
         >
-          <v-row justify="center">
-            億能手袋典雅製品廠
+          <v-row
+            justify="center"
+            class="ma-2"
+          >
+            億能手袋電壓製品廠 Yineng Manufactory
           </v-row>
-          <v-row justify="center">
-            Yineng Manufactory
-          </v-row>
-          <v-row justify="center">
-            ©{{ new Date().getFullYear() }}&nbsp;—&nbsp;<strong>Yineng</strong>&nbsp;版權所有
+
+          <v-row
+            justify="center"
+            class="ma-2"
+          >
+            ©{{ new Date().getFullYear() }}&nbsp;—&nbsp;<strong>億能 Yineng</strong>&nbsp;版權所有
           </v-row>
         </v-col>
       </v-row>
@@ -237,7 +275,7 @@ import mmexport006 from './src/assets/img/mmexport1612454848532.jpg'
 import mmexport007 from './src/assets/img/mmexport1612454852058(1).jpg'
 import mmexport008 from './src/assets/img/mmexport1612454853643.jpg'
 import mmexport009 from './src/assets/img/mmexport1612454852058.jpg'
-
+import { WOW } from 'wowjs'
 export default Vue.extend({
     data () {
         return {
@@ -260,8 +298,22 @@ export default Vue.extend({
                 '合作品牌',
                 '公司成員',
                 '聯絡我們'
-            ]
+            ],
+            footer: {
+                tel: '+86 (0755)2687-3260',
+                add: ['深圳市寶安區新橋街道辦新發工業區新發一路5號2F', '2F, NO.5, XIN-FA FIRST ROAD, XIN-FA INDUSTRIAL AREA, XINQIAO STREET, BAOAN DISTRICT, SHENZHEN, GUANGDONG PROVINCE,CHINA']
+            }
         }
+    },
+    mounted () {
+        const wow = new WOW({
+            boxClass: 'wow',
+            animateClass: 'animated',
+            offset: 40,
+            mobile: true,
+            live: true
+        })
+        wow.init()
     }
 })
 </script>
@@ -275,12 +327,10 @@ export default Vue.extend({
 }
 /*navbtn*/
 .navbtn{
-  margin: 40px 0% 0% 30%;
+  margin: 2% 0% 0% 30%;
   position: fixed;
   z-index: 10;
-
 }
-
 .draw-border {
   box-shadow: inset 0 0 0 3px #ffe593aa;
   color: #ffe593aa;
@@ -323,21 +373,32 @@ export default Vue.extend({
   transition-delay: 0s, 0.15s, 0s;
 }
 .btn {
-  background: none;
+  background: #000000aa;
   border: none;
   cursor: pointer;
   line-height: 0.5;
   font: 700 1.2rem 'cwTeXYen',  sans-serif;
   padding: 0.5em 1em;
   letter-spacing: 0.05rem;
-  margin: 0.2em 0.8em;
+  margin: 0.1em 0.8em;
   border-radius: 30px 10px;
 }
 .btn:focus {
   outline: 0px dotted #c0c0c0;
 }
 .silver{
-background-image: url('./src/assets/img/bg.jpg')
-
+  background-image: url('./src/assets/img/bg.jpg')
+}
+.centerText{
+  text-align: center;
+}
+.elementCenter{
+  margin:auto;
+}
+.whiteText{
+  color:white;
+}
+.bigTitle{
+  font: 700 3.6rem 'cwTeXYen',  sans-serif;
 }
 </style>

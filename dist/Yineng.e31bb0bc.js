@@ -53485,6 +53485,521 @@ module.exports = "/mmexport1612454852058(1).965b17d5.jpg";
 module.exports = "/mmexport1612454853643.e956b282.jpg";
 },{}],"src/assets/img/mmexport1612454852058.jpg":[function(require,module,exports) {
 module.exports = "/mmexport1612454852058.6c5b3f8d.jpg";
+},{}],"node_modules/wowjs/dist/wow.js":[function(require,module,exports) {
+(function() {
+  var MutationObserver, Util, WeakMap, getComputedStyle, getComputedStyleRX,
+    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+    indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+  Util = (function() {
+    function Util() {}
+
+    Util.prototype.extend = function(custom, defaults) {
+      var key, value;
+      for (key in defaults) {
+        value = defaults[key];
+        if (custom[key] == null) {
+          custom[key] = value;
+        }
+      }
+      return custom;
+    };
+
+    Util.prototype.isMobile = function(agent) {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
+    };
+
+    Util.prototype.createEvent = function(event, bubble, cancel, detail) {
+      var customEvent;
+      if (bubble == null) {
+        bubble = false;
+      }
+      if (cancel == null) {
+        cancel = false;
+      }
+      if (detail == null) {
+        detail = null;
+      }
+      if (document.createEvent != null) {
+        customEvent = document.createEvent('CustomEvent');
+        customEvent.initCustomEvent(event, bubble, cancel, detail);
+      } else if (document.createEventObject != null) {
+        customEvent = document.createEventObject();
+        customEvent.eventType = event;
+      } else {
+        customEvent.eventName = event;
+      }
+      return customEvent;
+    };
+
+    Util.prototype.emitEvent = function(elem, event) {
+      if (elem.dispatchEvent != null) {
+        return elem.dispatchEvent(event);
+      } else if (event in (elem != null)) {
+        return elem[event]();
+      } else if (("on" + event) in (elem != null)) {
+        return elem["on" + event]();
+      }
+    };
+
+    Util.prototype.addEvent = function(elem, event, fn) {
+      if (elem.addEventListener != null) {
+        return elem.addEventListener(event, fn, false);
+      } else if (elem.attachEvent != null) {
+        return elem.attachEvent("on" + event, fn);
+      } else {
+        return elem[event] = fn;
+      }
+    };
+
+    Util.prototype.removeEvent = function(elem, event, fn) {
+      if (elem.removeEventListener != null) {
+        return elem.removeEventListener(event, fn, false);
+      } else if (elem.detachEvent != null) {
+        return elem.detachEvent("on" + event, fn);
+      } else {
+        return delete elem[event];
+      }
+    };
+
+    Util.prototype.innerHeight = function() {
+      if ('innerHeight' in window) {
+        return window.innerHeight;
+      } else {
+        return document.documentElement.clientHeight;
+      }
+    };
+
+    return Util;
+
+  })();
+
+  WeakMap = this.WeakMap || this.MozWeakMap || (WeakMap = (function() {
+    function WeakMap() {
+      this.keys = [];
+      this.values = [];
+    }
+
+    WeakMap.prototype.get = function(key) {
+      var i, item, j, len, ref;
+      ref = this.keys;
+      for (i = j = 0, len = ref.length; j < len; i = ++j) {
+        item = ref[i];
+        if (item === key) {
+          return this.values[i];
+        }
+      }
+    };
+
+    WeakMap.prototype.set = function(key, value) {
+      var i, item, j, len, ref;
+      ref = this.keys;
+      for (i = j = 0, len = ref.length; j < len; i = ++j) {
+        item = ref[i];
+        if (item === key) {
+          this.values[i] = value;
+          return;
+        }
+      }
+      this.keys.push(key);
+      return this.values.push(value);
+    };
+
+    return WeakMap;
+
+  })());
+
+  MutationObserver = this.MutationObserver || this.WebkitMutationObserver || this.MozMutationObserver || (MutationObserver = (function() {
+    function MutationObserver() {
+      if (typeof console !== "undefined" && console !== null) {
+        console.warn('MutationObserver is not supported by your browser.');
+      }
+      if (typeof console !== "undefined" && console !== null) {
+        console.warn('WOW.js cannot detect dom mutations, please call .sync() after loading new content.');
+      }
+    }
+
+    MutationObserver.notSupported = true;
+
+    MutationObserver.prototype.observe = function() {};
+
+    return MutationObserver;
+
+  })());
+
+  getComputedStyle = this.getComputedStyle || function(el, pseudo) {
+    this.getPropertyValue = function(prop) {
+      var ref;
+      if (prop === 'float') {
+        prop = 'styleFloat';
+      }
+      if (getComputedStyleRX.test(prop)) {
+        prop.replace(getComputedStyleRX, function(_, _char) {
+          return _char.toUpperCase();
+        });
+      }
+      return ((ref = el.currentStyle) != null ? ref[prop] : void 0) || null;
+    };
+    return this;
+  };
+
+  getComputedStyleRX = /(\-([a-z]){1})/g;
+
+  this.WOW = (function() {
+    WOW.prototype.defaults = {
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true,
+      live: true,
+      callback: null,
+      scrollContainer: null
+    };
+
+    function WOW(options) {
+      if (options == null) {
+        options = {};
+      }
+      this.scrollCallback = bind(this.scrollCallback, this);
+      this.scrollHandler = bind(this.scrollHandler, this);
+      this.resetAnimation = bind(this.resetAnimation, this);
+      this.start = bind(this.start, this);
+      this.scrolled = true;
+      this.config = this.util().extend(options, this.defaults);
+      if (options.scrollContainer != null) {
+        this.config.scrollContainer = document.querySelector(options.scrollContainer);
+      }
+      this.animationNameCache = new WeakMap();
+      this.wowEvent = this.util().createEvent(this.config.boxClass);
+    }
+
+    WOW.prototype.init = function() {
+      var ref;
+      this.element = window.document.documentElement;
+      if ((ref = document.readyState) === "interactive" || ref === "complete") {
+        this.start();
+      } else {
+        this.util().addEvent(document, 'DOMContentLoaded', this.start);
+      }
+      return this.finished = [];
+    };
+
+    WOW.prototype.start = function() {
+      var box, j, len, ref;
+      this.stopped = false;
+      this.boxes = (function() {
+        var j, len, ref, results;
+        ref = this.element.querySelectorAll("." + this.config.boxClass);
+        results = [];
+        for (j = 0, len = ref.length; j < len; j++) {
+          box = ref[j];
+          results.push(box);
+        }
+        return results;
+      }).call(this);
+      this.all = (function() {
+        var j, len, ref, results;
+        ref = this.boxes;
+        results = [];
+        for (j = 0, len = ref.length; j < len; j++) {
+          box = ref[j];
+          results.push(box);
+        }
+        return results;
+      }).call(this);
+      if (this.boxes.length) {
+        if (this.disabled()) {
+          this.resetStyle();
+        } else {
+          ref = this.boxes;
+          for (j = 0, len = ref.length; j < len; j++) {
+            box = ref[j];
+            this.applyStyle(box, true);
+          }
+        }
+      }
+      if (!this.disabled()) {
+        this.util().addEvent(this.config.scrollContainer || window, 'scroll', this.scrollHandler);
+        this.util().addEvent(window, 'resize', this.scrollHandler);
+        this.interval = setInterval(this.scrollCallback, 50);
+      }
+      if (this.config.live) {
+        return new MutationObserver((function(_this) {
+          return function(records) {
+            var k, len1, node, record, results;
+            results = [];
+            for (k = 0, len1 = records.length; k < len1; k++) {
+              record = records[k];
+              results.push((function() {
+                var l, len2, ref1, results1;
+                ref1 = record.addedNodes || [];
+                results1 = [];
+                for (l = 0, len2 = ref1.length; l < len2; l++) {
+                  node = ref1[l];
+                  results1.push(this.doSync(node));
+                }
+                return results1;
+              }).call(_this));
+            }
+            return results;
+          };
+        })(this)).observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      }
+    };
+
+    WOW.prototype.stop = function() {
+      this.stopped = true;
+      this.util().removeEvent(this.config.scrollContainer || window, 'scroll', this.scrollHandler);
+      this.util().removeEvent(window, 'resize', this.scrollHandler);
+      if (this.interval != null) {
+        return clearInterval(this.interval);
+      }
+    };
+
+    WOW.prototype.sync = function(element) {
+      if (MutationObserver.notSupported) {
+        return this.doSync(this.element);
+      }
+    };
+
+    WOW.prototype.doSync = function(element) {
+      var box, j, len, ref, results;
+      if (element == null) {
+        element = this.element;
+      }
+      if (element.nodeType !== 1) {
+        return;
+      }
+      element = element.parentNode || element;
+      ref = element.querySelectorAll("." + this.config.boxClass);
+      results = [];
+      for (j = 0, len = ref.length; j < len; j++) {
+        box = ref[j];
+        if (indexOf.call(this.all, box) < 0) {
+          this.boxes.push(box);
+          this.all.push(box);
+          if (this.stopped || this.disabled()) {
+            this.resetStyle();
+          } else {
+            this.applyStyle(box, true);
+          }
+          results.push(this.scrolled = true);
+        } else {
+          results.push(void 0);
+        }
+      }
+      return results;
+    };
+
+    WOW.prototype.show = function(box) {
+      this.applyStyle(box);
+      box.className = box.className + " " + this.config.animateClass;
+      if (this.config.callback != null) {
+        this.config.callback(box);
+      }
+      this.util().emitEvent(box, this.wowEvent);
+      this.util().addEvent(box, 'animationend', this.resetAnimation);
+      this.util().addEvent(box, 'oanimationend', this.resetAnimation);
+      this.util().addEvent(box, 'webkitAnimationEnd', this.resetAnimation);
+      this.util().addEvent(box, 'MSAnimationEnd', this.resetAnimation);
+      return box;
+    };
+
+    WOW.prototype.applyStyle = function(box, hidden) {
+      var delay, duration, iteration;
+      duration = box.getAttribute('data-wow-duration');
+      delay = box.getAttribute('data-wow-delay');
+      iteration = box.getAttribute('data-wow-iteration');
+      return this.animate((function(_this) {
+        return function() {
+          return _this.customStyle(box, hidden, duration, delay, iteration);
+        };
+      })(this));
+    };
+
+    WOW.prototype.animate = (function() {
+      if ('requestAnimationFrame' in window) {
+        return function(callback) {
+          return window.requestAnimationFrame(callback);
+        };
+      } else {
+        return function(callback) {
+          return callback();
+        };
+      }
+    })();
+
+    WOW.prototype.resetStyle = function() {
+      var box, j, len, ref, results;
+      ref = this.boxes;
+      results = [];
+      for (j = 0, len = ref.length; j < len; j++) {
+        box = ref[j];
+        results.push(box.style.visibility = 'visible');
+      }
+      return results;
+    };
+
+    WOW.prototype.resetAnimation = function(event) {
+      var target;
+      if (event.type.toLowerCase().indexOf('animationend') >= 0) {
+        target = event.target || event.srcElement;
+        return target.className = target.className.replace(this.config.animateClass, '').trim();
+      }
+    };
+
+    WOW.prototype.customStyle = function(box, hidden, duration, delay, iteration) {
+      if (hidden) {
+        this.cacheAnimationName(box);
+      }
+      box.style.visibility = hidden ? 'hidden' : 'visible';
+      if (duration) {
+        this.vendorSet(box.style, {
+          animationDuration: duration
+        });
+      }
+      if (delay) {
+        this.vendorSet(box.style, {
+          animationDelay: delay
+        });
+      }
+      if (iteration) {
+        this.vendorSet(box.style, {
+          animationIterationCount: iteration
+        });
+      }
+      this.vendorSet(box.style, {
+        animationName: hidden ? 'none' : this.cachedAnimationName(box)
+      });
+      return box;
+    };
+
+    WOW.prototype.vendors = ["moz", "webkit"];
+
+    WOW.prototype.vendorSet = function(elem, properties) {
+      var name, results, value, vendor;
+      results = [];
+      for (name in properties) {
+        value = properties[name];
+        elem["" + name] = value;
+        results.push((function() {
+          var j, len, ref, results1;
+          ref = this.vendors;
+          results1 = [];
+          for (j = 0, len = ref.length; j < len; j++) {
+            vendor = ref[j];
+            results1.push(elem["" + vendor + (name.charAt(0).toUpperCase()) + (name.substr(1))] = value);
+          }
+          return results1;
+        }).call(this));
+      }
+      return results;
+    };
+
+    WOW.prototype.vendorCSS = function(elem, property) {
+      var j, len, ref, result, style, vendor;
+      style = getComputedStyle(elem);
+      result = style.getPropertyCSSValue(property);
+      ref = this.vendors;
+      for (j = 0, len = ref.length; j < len; j++) {
+        vendor = ref[j];
+        result = result || style.getPropertyCSSValue("-" + vendor + "-" + property);
+      }
+      return result;
+    };
+
+    WOW.prototype.animationName = function(box) {
+      var animationName, error;
+      try {
+        animationName = this.vendorCSS(box, 'animation-name').cssText;
+      } catch (error) {
+        animationName = getComputedStyle(box).getPropertyValue('animation-name');
+      }
+      if (animationName === 'none') {
+        return '';
+      } else {
+        return animationName;
+      }
+    };
+
+    WOW.prototype.cacheAnimationName = function(box) {
+      return this.animationNameCache.set(box, this.animationName(box));
+    };
+
+    WOW.prototype.cachedAnimationName = function(box) {
+      return this.animationNameCache.get(box);
+    };
+
+    WOW.prototype.scrollHandler = function() {
+      return this.scrolled = true;
+    };
+
+    WOW.prototype.scrollCallback = function() {
+      var box;
+      if (this.scrolled) {
+        this.scrolled = false;
+        this.boxes = (function() {
+          var j, len, ref, results;
+          ref = this.boxes;
+          results = [];
+          for (j = 0, len = ref.length; j < len; j++) {
+            box = ref[j];
+            if (!(box)) {
+              continue;
+            }
+            if (this.isVisible(box)) {
+              this.show(box);
+              continue;
+            }
+            results.push(box);
+          }
+          return results;
+        }).call(this);
+        if (!(this.boxes.length || this.config.live)) {
+          return this.stop();
+        }
+      }
+    };
+
+    WOW.prototype.offsetTop = function(element) {
+      var top;
+      while (element.offsetTop === void 0) {
+        element = element.parentNode;
+      }
+      top = element.offsetTop;
+      while (element = element.offsetParent) {
+        top += element.offsetTop;
+      }
+      return top;
+    };
+
+    WOW.prototype.isVisible = function(box) {
+      var bottom, offset, top, viewBottom, viewTop;
+      offset = box.getAttribute('data-wow-offset') || this.config.offset;
+      viewTop = (this.config.scrollContainer && this.config.scrollContainer.scrollTop) || window.pageYOffset;
+      viewBottom = viewTop + Math.min(this.element.clientHeight, this.util().innerHeight()) - offset;
+      top = this.offsetTop(box);
+      bottom = top + box.clientHeight;
+      return top <= viewBottom && bottom >= viewTop;
+    };
+
+    WOW.prototype.util = function() {
+      return this._util != null ? this._util : this._util = new Util();
+    };
+
+    WOW.prototype.disabled = function() {
+      return !this.config.mobile && this.util().isMobile(navigator.userAgent);
+    };
+
+    return WOW;
+
+  })();
+
+}).call(this);
+
 },{}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
@@ -53790,8 +54305,48 @@ var _mmexport8 = _interopRequireDefault(require("./src/assets/img/mmexport161245
 
 var _mmexport9 = _interopRequireDefault(require("./src/assets/img/mmexport1612454852058.jpg"));
 
+var _wowjs = require("wowjs");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -54043,20 +54598,34 @@ var _default = _vue.default.extend({
       }, {
         src: _mmexport9.default
       }],
-      links: ['關於我們', '合作品牌', '公司成員', '聯絡我們']
+      links: ['關於我們', '合作品牌', '公司成員', '聯絡我們'],
+      footer: {
+        tel: '+86 (0755)2687-3260',
+        add: ['深圳市寶安區新橋街道辦新發工業區新發一路5號2F', '2F, NO.5, XIN-FA FIRST ROAD, XIN-FA INDUSTRIAL AREA, XINQIAO STREET, BAOAN DISTRICT, SHENZHEN, GUANGDONG PROVINCE,CHINA']
+      }
     };
+  },
+  mounted: function mounted() {
+    var wow = new _wowjs.WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 40,
+      mobile: true,
+      live: true
+    });
+    wow.init();
   }
 });
 
 exports.default = _default;
-        var $e8afa4 = exports.default || module.exports;
+        var $73e201 = exports.default || module.exports;
       
-      if (typeof $e8afa4 === 'function') {
-        $e8afa4 = $e8afa4.options;
+      if (typeof $73e201 === 'function') {
+        $73e201 = $73e201.options;
       }
     
         /* template */
-        Object.assign($e8afa4, (function () {
+        Object.assign($73e201, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -54070,19 +54639,24 @@ exports.default = _default;
         {
           attrs: {
             app: "",
-            "shrink-on-scroll": "",
-            color: "rgb(0,0,0,0.1)",
-            "collapse-on-scroll": true,
-            height: "140",
-            "min-width": "240",
-            "min-height": "120"
+            color: "rgb(0,0,0,0.8)",
+            height: "100",
+            "min-width": "200",
+            "min-height": "100"
           }
         },
         [
-          _c("v-img", {
-            staticClass: "ma-5 ml-3 mt-2",
-            attrs: { "max-height": "100", "max-width": "175", src: _vm.logo }
-          }),
+          _c(
+            "a",
+            { attrs: { href: "./" } },
+            [
+              _c("v-img", {
+                staticClass: "ma-5 ml-3 mt-2",
+                attrs: { "max-height": "85", "max-width": "125", src: _vm.logo }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("v-spacer")
         ],
@@ -54106,47 +54680,79 @@ exports.default = _default;
         0
       ),
       _vm._v(" "),
+      _c("v-main", { staticClass: "ma-8" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "bigTitle whiteText centerText elementCenter wow bounceInUp"
+          },
+          [_vm._v("\n      億能幫你達成10,000,000個可能\n    ")]
+        )
+      ]),
+      _vm._v(" "),
       _c(
-        "v-main",
-        { staticClass: "ma-8" },
+        "v-footer",
+        { attrs: { color: "primary lighten-2", padless: "" } },
         [
-          _c("h1", [_vm._v("\n      億能手袋電壓製品廠\n    ")]),
-          _vm._v(" "),
           _c(
-            "v-card",
-            { staticClass: "silver", attrs: { width: "600", height: "600" } },
+            "v-row",
+            { attrs: { justify: "center", "no-gutters": "" } },
             [
               _c(
-                "v-container",
-                { attrs: { fluid: "" } },
+                "v-col",
+                {
+                  staticClass: "primary lighten-1 py-4 text-center white--text",
+                  attrs: { cols: "12" }
+                },
                 [
                   _c(
                     "v-row",
+                    {
+                      staticClass: "pa-2",
+                      attrs: { justify: "center", align: "center" }
+                    },
                     [
                       _c(
                         "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "4" }
-                        },
+                        { attrs: { cols: "2" } },
                         [
                           _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
+                            "v-row",
+                            { attrs: { justify: "center" } },
                             [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[0]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10),
-                                  "aspect-ratio": "1"
-                                }
-                              })
+                              _c(
+                                "v-col",
+                                [
+                                  _c(
+                                    "v-row",
+                                    { attrs: { justify: "center" } },
+                                    [
+                                      _c("v-icon", [
+                                        _vm._v(
+                                          "\n                    mdi-phone\n                  "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("h4", [_vm._v("電話 TEL")])
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-row",
+                                    { attrs: { justify: "center" } },
+                                    [
+                                      _vm._v(
+                                        "\n                  " +
+                                          _vm._s(_vm.footer.tel) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
                             ],
                             1
                           )
@@ -54156,213 +54762,44 @@ exports.default = _default;
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "4" }
-                        },
+                        { attrs: { cols: "4" } },
                         [
                           _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
+                            "v-row",
+                            { attrs: { justify: "center" } },
                             [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[1]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10),
-                                  "aspect-ratio": "1"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
-                            [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[2]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10),
-                                  "aspect-ratio": "1"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
-                            [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[6]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10),
-                                  "aspect-ratio": "1"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
-                            [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[7]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10),
-                                  "aspect-ratio": "1"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
-                            [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[8]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10),
-                                  "aspect-ratio": "1"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "8" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
-                            [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[3]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10)
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "pa-1 d-flex child-flex",
-                          attrs: { cols: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "d-flex",
-                              attrs: { flat: "", tile: "" }
-                            },
-                            [
-                              _c("v-img", {
-                                staticClass: "grey lighten-2",
-                                attrs: {
-                                  src: _vm.gallery[5]["src"],
-                                  "lazy-src":
-                                    "https://picsum.photos/10/6?image=" +
-                                    (1 * 5 + 10),
-                                  "aspect-ratio": "1"
-                                }
-                              })
+                              _c(
+                                "v-col",
+                                [
+                                  _c(
+                                    "v-row",
+                                    { attrs: { justify: "center" } },
+                                    [
+                                      _c("v-icon", [
+                                        _vm._v(
+                                          "\n                    mdi-map-marker\n                  "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("h4", [_vm._v("地址 address")])
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-row",
+                                    { attrs: { justify: "center" } },
+                                    [
+                                      _vm._v(
+                                        "\n                  " +
+                                          _vm._s(_vm.footer.add[0]) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
                             ],
                             1
                           )
@@ -54374,33 +54811,7 @@ exports.default = _default;
                   )
                 ],
                 1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-footer",
-        { attrs: { color: "primary lighten-1", padless: "" } },
-        [
-          _c(
-            "v-row",
-            { attrs: { justify: "center", "no-gutters": "" } },
-            [
-              _vm._l(_vm.links, function(link) {
-                return _c(
-                  "v-btn",
-                  {
-                    key: link,
-                    staticClass: "my-2",
-                    attrs: { color: "white", text: "", rounded: "" }
-                  },
-                  [_vm._v("\n        " + _vm._s(link) + "\n      ")]
-                )
-              }),
+              ),
               _vm._v(" "),
               _c(
                 "v-col",
@@ -54409,26 +54820,34 @@ exports.default = _default;
                   attrs: { cols: "12" }
                 },
                 [
-                  _c("v-row", { attrs: { justify: "center" } }, [
-                    _vm._v("\n          億能手袋典雅製品廠\n        ")
-                  ]),
+                  _c(
+                    "v-row",
+                    { staticClass: "ma-2", attrs: { justify: "center" } },
+                    [
+                      _vm._v(
+                        "\n          億能手袋電壓製品廠 Yineng Manufactory\n        "
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("v-row", { attrs: { justify: "center" } }, [
-                    _vm._v("\n          Yineng Manufactory\n        ")
-                  ]),
-                  _vm._v(" "),
-                  _c("v-row", { attrs: { justify: "center" } }, [
-                    _vm._v(
-                      "\n          ©" + _vm._s(new Date().getFullYear()) + " — "
-                    ),
-                    _c("strong", [_vm._v("Yineng")]),
-                    _vm._v(" 版權所有\n        ")
-                  ])
+                  _c(
+                    "v-row",
+                    { staticClass: "ma-2", attrs: { justify: "center" } },
+                    [
+                      _vm._v(
+                        "\n          ©" +
+                          _vm._s(new Date().getFullYear()) +
+                          " — "
+                      ),
+                      _c("strong", [_vm._v("億能 Yineng")]),
+                      _vm._v(" 版權所有\n        ")
+                    ]
+                  )
                 ],
                 1
               )
             ],
-            2
+            1
           )
         ],
         1
@@ -54444,7 +54863,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-e8afa4",
+            _scopeId: "data-v-73e201",
             functional: undefined
           };
         })());
@@ -54457,9 +54876,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e8afa4', $e8afa4);
+            api.createRecord('$73e201', $73e201);
           } else {
-            api.reload('$e8afa4', $e8afa4);
+            api.reload('$73e201', $73e201);
           }
         }
 
@@ -54470,7 +54889,18 @@ render._withStripped = true
       
       }
     })();
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","./src/assets/img/mmexport1612454841217.jpg":"src/assets/img/mmexport1612454841217.jpg","./src/assets/img/mmexport1612454842972.jpg":"src/assets/img/mmexport1612454842972.jpg","./src/assets/img/mmexport1612454844586.jpg":"src/assets/img/mmexport1612454844586.jpg","./src/assets/img/mmexport1612454847071.jpg":"src/assets/img/mmexport1612454847071.jpg","./src/assets/img/mmexport1612454850384.jpg":"src/assets/img/mmexport1612454850384.jpg","./src/assets/img/mmexport1612454848532.jpg":"src/assets/img/mmexport1612454848532.jpg","./src/assets/img/mmexport1612454852058(1).jpg":"src/assets/img/mmexport1612454852058(1).jpg","./src/assets/img/mmexport1612454853643.jpg":"src/assets/img/mmexport1612454853643.jpg","./src/assets/img/mmexport1612454852058.jpg":"src/assets/img/mmexport1612454852058.jpg","./src\\assets\\img\\bg.jpg":[["bg.b3363b3f.jpg","src/assets/img/bg.jpg"],"src/assets/img/bg.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"index.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/assets/img/logo-word.png":"src/assets/img/logo-word.png","./src/assets/img/mmexport1612454841217.jpg":"src/assets/img/mmexport1612454841217.jpg","./src/assets/img/mmexport1612454842972.jpg":"src/assets/img/mmexport1612454842972.jpg","./src/assets/img/mmexport1612454844586.jpg":"src/assets/img/mmexport1612454844586.jpg","./src/assets/img/mmexport1612454847071.jpg":"src/assets/img/mmexport1612454847071.jpg","./src/assets/img/mmexport1612454850384.jpg":"src/assets/img/mmexport1612454850384.jpg","./src/assets/img/mmexport1612454848532.jpg":"src/assets/img/mmexport1612454848532.jpg","./src/assets/img/mmexport1612454852058(1).jpg":"src/assets/img/mmexport1612454852058(1).jpg","./src/assets/img/mmexport1612454853643.jpg":"src/assets/img/mmexport1612454853643.jpg","./src/assets/img/mmexport1612454852058.jpg":"src/assets/img/mmexport1612454852058.jpg","wowjs":"node_modules/wowjs/dist/wow.js","./src/assets/img/bg.jpg":[["bg.b3363b3f.jpg","src/assets/img/bg.jpg"],"src/assets/img/bg.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"node_modules/animate.css/animate.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/wowjs/css/libs/animate.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./index.css");
@@ -54481,7 +54911,13 @@ var _vuetify = _interopRequireDefault(require("./src/plugins/vuetify"));
 
 var _App = _interopRequireDefault(require("./App.vue"));
 
+var _animate = _interopRequireDefault(require("animate.css"));
+
+require("wowjs/css/libs/animate.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_vue.default.use(_animate.default);
 
 new _vue.default({
   vuetify: _vuetify.default,
@@ -54489,7 +54925,7 @@ new _vue.default({
     return createElement(_App.default);
   }
 }).$mount('#app');
-},{"./index.css":"index.css","vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/plugins/vuetify":"src/plugins/vuetify.js","./App.vue":"App.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./index.css":"index.css","vue":"node_modules/vue/dist/vue.runtime.esm.js","./src/plugins/vuetify":"src/plugins/vuetify.js","./App.vue":"App.vue","animate.css":"node_modules/animate.css/animate.css","wowjs/css/libs/animate.css":"node_modules/wowjs/css/libs/animate.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -54517,7 +54953,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57094" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61587" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
