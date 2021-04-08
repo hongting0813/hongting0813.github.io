@@ -54568,6 +54568,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import bear001 from './src/assets/img/bear001.jpg'
 // import bear002 from './src/assets/img/bear002.jpg'
 // import bear003 from './src/assets/img/bear003.jpg'
@@ -54636,48 +54664,62 @@ exports.default = _default;
     [
       _c(
         "v-app-bar",
-        {
-          attrs: {
-            app: "",
-            color: "rgb(0,0,0,0.8)",
-            height: "100",
-            "min-width": "200",
-            "min-height": "100"
-          }
-        },
+        { attrs: { app: "", color: "rgb(0,0,0,0.8)", height: "100" } },
         [
+          _c("div", [
+            _c(
+              "a",
+              { attrs: { href: "./" } },
+              [
+                _c("v-img", {
+                  staticClass: "ma-5 ml-3 mt-2",
+                  attrs: { height: "85", width: "150", src: _vm.logo }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
           _c(
-            "a",
-            { attrs: { href: "./" } },
-            [
-              _c("v-img", {
-                staticClass: "ma-5 ml-3 mt-2",
-                attrs: { "max-height": "85", "max-width": "125", src: _vm.logo }
-              })
-            ],
-            1
+            "div",
+            _vm._l(_vm.links, function(link) {
+              return _c(
+                "button",
+                {
+                  key: link,
+                  staticClass: "btn draw-border",
+                  attrs: { color: "white", text: "", rounded: "" }
+                },
+                [_vm._v("\n        " + _vm._s(link) + "\n      ")]
+              )
+            }),
+            0
           ),
           _vm._v(" "),
-          _c("v-spacer")
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-btn-toggle",
+            { attrs: { dark: "", mandatory: "" } },
+            [
+              _c("v-btn", { attrs: { dark: "", flat: "" } }, [
+                _vm._v("\n        中文\n      ")
+              ]),
+              _vm._v(" "),
+              _c("v-btn", { attrs: { dark: "", flat: "" } }, [
+                _vm._v("\n        English\n      ")
+              ]),
+              _vm._v(" "),
+              _c("v-btn", { attrs: { dark: "", flat: "" } }, [
+                _vm._v("\n        日本語\n      ")
+              ])
+            ],
+            1
+          )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "navbtn" },
-        _vm._l(_vm.links, function(link) {
-          return _c(
-            "button",
-            {
-              key: link,
-              staticClass: "btn draw-border",
-              attrs: { color: "white", text: "", rounded: "" }
-            },
-            [_vm._v("\n      " + _vm._s(link) + "\n    ")]
-          )
-        }),
-        0
       ),
       _vm._v(" "),
       _c("v-main", { staticClass: "ma-8" }, [
@@ -54688,6 +54730,12 @@ exports.default = _default;
               "bigTitle whiteText centerText elementCenter wow bounceInUp"
           },
           [_vm._v("\n      億能幫你達成10,000,000個可能\n    ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { class: _vm.$vuetify.breakpoint.xs ? "helloxs" : "hellolg" },
+          [_c("h2", [_vm._v("test")])]
         )
       ]),
       _vm._v(" "),
@@ -54953,7 +55001,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61587" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53493" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

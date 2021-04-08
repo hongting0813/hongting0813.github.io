@@ -1,33 +1,58 @@
 <template>
   <v-app class="my-container">
+    <!-- App bar -->
     <v-app-bar
       app
       color="rgb(0,0,0,0.8)"
       height="100"
-      min-width="200"
-      min-height="100"
     >
-      <a href="./">
-        <v-img
-          class="ma-5 ml-3 mt-2"
-          max-height="85"
-          max-width="125"
-          :src="logo"
-        /></a>
+      <div>
+        <a href="./">
+          <v-img
+            class="ma-5 ml-3 mt-2"
+            height="85"
+            width="150"
+            :src="logo"
+          /></a>
+      </div>
       <v-spacer />
-    </v-app-bar>
-    <div class="navbtn">
-      <button
-        v-for="link in links"
-        :key="link"
-        class="btn draw-border"
-        color="white"
-        text
-        rounded
+      <div>
+        <button
+          v-for="link in links"
+          :key="link"
+          class="btn draw-border"
+          color="white"
+          text
+          rounded
+        >
+          {{ link }}
+        </button>
+      </div>
+      <v-spacer />
+      <v-btn-toggle
+        dark
+        mandatory
       >
-        {{ link }}
-      </button>
-    </div>
+        <v-btn
+          dark
+          flat
+        >
+          中文
+        </v-btn>
+        <v-btn
+          dark
+          flat
+        >
+          English
+        </v-btn>
+        <v-btn
+          dark
+          flat
+        >
+          日本語
+        </v-btn>
+      </v-btn-toggle>
+    </v-app-bar>
     <v-main class="ma-8">
       <!-- <v-card
         width="600"
@@ -178,6 +203,9 @@
       <!-- <v-img src="http://up.deskcity.org/pic/0a/eb/d9/0aebd9555874e8722f4be5e515bfdf3a.jpg" /> -->
       <div class="bigTitle whiteText centerText elementCenter wow bounceInUp">
         億能幫你達成10,000,000個可能
+      </div>
+      <div :class="$vuetify.breakpoint.xs ? 'helloxs' :'hellolg' ">
+        <h2>test</h2>
       </div>
     </v-main>
     <!-- footer -->
@@ -400,5 +428,11 @@ export default Vue.extend({
 }
 .bigTitle{
   font: 700 3.6rem 'cwTeXYen',  sans-serif;
+}
+.helloxs{
+  color:red;
+}
+.hellolg{
+  color:green;
 }
 </style>

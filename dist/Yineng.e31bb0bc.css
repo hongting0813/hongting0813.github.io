@@ -90,6 +90,12 @@
 .bigTitle[data-v-73e201]{
   font: 700 3.6rem 'cwTeXYen',  sans-serif;
 }
+.helloxs[data-v-73e201]{
+  color:red;
+}
+.hellolg[data-v-73e201]{
+  color:green;
+}
 @charset "UTF-8";/*!
  * animate.css - https://animate.style/
  * Version - 4.1.1
