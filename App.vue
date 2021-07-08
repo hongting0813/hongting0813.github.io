@@ -1,298 +1,19 @@
 <template>
-  <v-app class="my-container">
-    <!-- App bar -->
-    <v-app-bar
-      app
-      color="rgb(0,0,0,0.8)"
-      height="100"
-    >
-      <div>
-        <a href="./">
-          <v-img
-            class="ma-5 ml-3 mt-2"
-            height="85"
-            width="150"
-            :src="logo"
-          /></a>
-      </div>
-      <v-spacer />
-      <div>
-        <button
-          v-for="link in links"
-          :key="link"
-          class="btn draw-border"
-          color="white"
-          text
-          rounded
-        >
-          {{ link }}
-        </button>
-      </div>
-      <v-spacer />
-      <v-btn-toggle
-        dark
-        mandatory
-      >
-        <v-btn
-          dark
-          flat
-        >
-          中文
-        </v-btn>
-        <v-btn
-          dark
-          flat
-        >
-          English
-        </v-btn>
-        <v-btn
-          dark
-          flat
-        >
-          日本語
-        </v-btn>
-      </v-btn-toggle>
-    </v-app-bar>
-    <v-main class="ma-8">
-      <!-- <v-card
-        width="600"
-        height="600"
-        class="silver"
-      >
-        <v-container fluid>
-          <v-row>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="4"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[0]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="4"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[1]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="4"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[2]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="4"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[6]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="4"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[7]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="4"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[8]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="8"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[3]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-            <v-col
-              class="pa-1 d-flex child-flex"
-              cols="4"
-            >
-              <v-card
-                flat
-                tile
-                class="d-flex"
-              >
-                <v-img
-                  :src="gallery[5]['src']"
-                  :lazy-src="`https://picsum.photos/10/6?image=${1 * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                />
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card> -->
-      <!-- <v-img src="http://up.deskcity.org/pic/0a/eb/d9/0aebd9555874e8722f4be5e515bfdf3a.jpg" /> -->
-      <div class="bigTitle whiteText centerText elementCenter wow bounceInUp">
-        億能幫你達成10,000,000個可能
-      </div>
-      <div :class="$vuetify.breakpoint.xs ? 'helloxs' :'hellolg' ">
-        <h2>test</h2>
-      </div>
+  <v-app class="bg">
+    <headerpage />
+    <v-main>
+      <!-- 给应用提供合适的间距 -->
+      <v-container fluid>
+        <!-- 如果使用 vue-router -->
+        <router-view />
+      </v-container>
     </v-main>
-    <!-- footer -->
-    <v-footer
-      color="primary lighten-2"
-      padless
-    >
-      <v-row
-        justify="center"
-        no-gutters
-      >
-        <v-col
-          class="primary lighten-1 py-4 text-center white--text"
-          cols="12"
-        >
-          <v-row
-            justify="center"
-            align="center"
-            class="pa-2"
-          >
-            <v-col
-              cols="2"
-            >
-              <v-row justify="center">
-                <v-col>
-                  <v-row justify="center">
-                    <v-icon>
-                      mdi-phone
-                    </v-icon>
-                    <h4>電話 TEL</h4>
-                  </v-row>
-                  <v-row justify="center">
-                    {{ footer.tel }}
-                  </v-row>
-                </v-col>
-              </v-row>
-            </v-col>
-            <v-col
-              cols="4"
-            >
-              <v-row justify="center">
-                <v-col>
-                  <v-row justify="center">
-                    <v-icon>
-                      mdi-map-marker
-                    </v-icon>
-                    <h4>地址 address</h4>
-                  </v-row>
-                  <v-row justify="center">
-                    {{ footer.add[0] }}
-                  </v-row>
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-col>
-        <v-col
-          class="primary lighten-2 py-4 text-center white--text"
-          cols="12"
-        >
-          <v-row
-            justify="center"
-            class="ma-2"
-          >
-            億能手袋電壓製品廠 Yineng Manufactory
-          </v-row>
-
-          <v-row
-            justify="center"
-            class="ma-2"
-          >
-            ©{{ new Date().getFullYear() }}&nbsp;—&nbsp;<strong>億能 Yineng</strong>&nbsp;版權所有
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-footer>
+    <footerpage />
   </v-app>
 </template>
 
 <script>
 import Vue from 'vue'
-import logo from './src/assets/img/logo-word.png'
-// import bear001 from './src/assets/img/bear001.jpg'
-// import bear002 from './src/assets/img/bear002.jpg'
-// import bear003 from './src/assets/img/bear003.jpg'
-// import bear004 from './src/assets/img/bear004.jpg'
-// import bear005 from './src/assets/img/bear005.jpg'
 
 import mmexport001 from './src/assets/img/mmexport1612454841217.jpg'
 import mmexport002 from './src/assets/img/mmexport1612454842972.jpg'
@@ -300,14 +21,17 @@ import mmexport003 from './src/assets/img/mmexport1612454844586.jpg'
 import mmexport004 from './src/assets/img/mmexport1612454847071.jpg'
 import mmexport005 from './src/assets/img/mmexport1612454850384.jpg'
 import mmexport006 from './src/assets/img/mmexport1612454848532.jpg'
-import mmexport007 from './src/assets/img/mmexport1612454852058(1).jpg'
-import mmexport008 from './src/assets/img/mmexport1612454853643.jpg'
-import mmexport009 from './src/assets/img/mmexport1612454852058.jpg'
+import mmexport007 from './src/assets/img/mmexport1612454853643.jpg'
+import mmexport008 from './src/assets/img/mmexport1612454852058.jpg'
 import { WOW } from 'wowjs'
+import headerpage from './src/components/header.vue'
+import footerpage from './src/components/footer.vue'
 export default Vue.extend({
+    components: {
+        footerpage, headerpage
+    },
     data () {
         return {
-            logo: logo,
             bundler: 'Parcel',
             drawer: false,
             gallery: [
@@ -318,19 +42,17 @@ export default Vue.extend({
                 { src: mmexport005 },
                 { src: mmexport006 },
                 { src: mmexport007 },
-                { src: mmexport008 },
-                { src: mmexport009 }
-            ],
-            links: [
-                '關於我們',
-                '合作品牌',
-                '公司成員',
-                '聯絡我們'
-            ],
-            footer: {
-                tel: '+86 (0755)2687-3260',
-                add: ['深圳市寶安區新橋街道辦新發工業區新發一路5號2F', '2F, NO.5, XIN-FA FIRST ROAD, XIN-FA INDUSTRIAL AREA, XINQIAO STREET, BAOAN DISTRICT, SHENZHEN, GUANGDONG PROVINCE,CHINA']
-            }
+                { src: mmexport008 }
+            ]
+        }
+    },
+    computed: {
+        isVisible () {
+            return !this.$store.state.isMobile
+        },
+        username () {
+            // We will see what `params` is shortly
+            return this.$route.params.username
         }
     },
     mounted () {
@@ -342,97 +64,39 @@ export default Vue.extend({
             live: true
         })
         wow.init()
+        this.getScreen()
+        this.setMobile()
+    },
+    methods: {
+        getScreen () {
+            const clientWidth = document.documentElement.clientWidth || document.body.clientHeight
+            this.$store.commit('SET_WIDTH', clientWidth)
+            if (clientWidth < 768) { // 當屏幕小於768時，設置Vuex裏的數據爲true
+                this.$store.commit('SET_MOBLIE', true)
+            } else { // 反之，設置Vuex裏的數據爲false
+                this.$store.commit('SET_MOBLIE', false)
+            }
+        },
+        setMobile () {
+            // 監聽屏幕
+            addEventListener('resize', () => {
+                this.getScreen()
+            })
+        },
+        goBack () {
+            window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+        }
     }
+
 })
 </script>
 
 <style scoped>
 /*background*/
-.my-container {
-  max-width: none;
-  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
-  background-blend-mode: multiply;
-}
-/*navbtn*/
-.navbtn{
-  margin: 2% 0% 0% 30%;
-  position: fixed;
-  z-index: 10;
-}
-.draw-border {
-  box-shadow: inset 0 0 0 3px #ffe593aa;
-  color: #ffe593aa;
-  transition: color 0.25s 0.0833333333s;
-  position: relative;
-}
-.draw-border::before, .draw-border::after {
-  border: 0 solid transparent;
-  box-sizing: border-box;
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  width: 0;
-  height: 0;
-  bottom: 0;
-  right: 0;
-  border-radius: 30px 10px;
-}
-.draw-border::before {
-  border-bottom-width: 3px;
-  border-left-width: 3px;
-}
-.draw-border::after {
-  border-top-width: 3px;
-  border-right-width: 3px;
-}
-.draw-border:hover {
-  color: #c0c0c0;
-}
-.draw-border:hover::before, .draw-border:hover::after {
-  border-color: #c0c0c0;
-  transition: border-color 0s, width 0.25s, height 0.25s,border-radius 0.25s;
-  width: 100%;
-  height: 100%;
-}
-.draw-border:hover::before {
-  transition-delay: 0s, 0s, 0.15s;
-}
-.draw-border:hover::after {
-  transition-delay: 0s, 0.15s, 0s;
-}
-.btn {
-  background: #000000aa;
-  border: none;
-  cursor: pointer;
-  line-height: 0.5;
-  font: 700 1.2rem 'cwTeXYen',  sans-serif;
-  padding: 0.5em 1em;
-  letter-spacing: 0.05rem;
-  margin: 0.1em 0.8em;
-  border-radius: 30px 10px;
-}
-.btn:focus {
-  outline: 0px dotted #c0c0c0;
-}
-.silver{
-  background-image: url('./src/assets/img/bg.jpg')
-}
-.centerText{
-  text-align: center;
-}
-.elementCenter{
-  margin:auto;
-}
-.whiteText{
-  color:white;
-}
-.bigTitle{
-  font: 700 3.6rem 'cwTeXYen',  sans-serif;
-}
-.helloxs{
-  color:red;
-}
-.hellolg{
-  color:green;
-}
+.bg {
+    padding: 0;
+    margin:0;
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+    /* background-blend-mode: multiply; */
+  }
 </style>
