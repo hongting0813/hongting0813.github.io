@@ -56880,7 +56880,7 @@ var routes = [{
   component: _intro.default
 }];
 var router = new _vueRouter.default({
-  mode: 'history',
+  // mode: 'history',
   routes: routes // short for `routes: routes`
 
 });
@@ -59776,7 +59776,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60416" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50498" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
