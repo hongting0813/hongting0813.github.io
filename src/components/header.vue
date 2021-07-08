@@ -80,7 +80,7 @@ export default {
             logo: logo,
             links: [
                 '關於我們',
-                '合作品牌',
+                '產品展示',
                 '公司成員',
                 '聯絡我們'
             ],
