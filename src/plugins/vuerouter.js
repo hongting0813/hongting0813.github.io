@@ -16,11 +16,10 @@ const routes = [
 
 const router = new VueRouter({
     mode: 'history',
-    base: process.env.BASE_URL,
+    base: './Yineng',
     routes // short for `routes: routes`
 })
 
-console.log('hello', process.env.BASE_URL)
 export default router
 // router.beforeEach(async (to, from, next) => {
 //     next()
