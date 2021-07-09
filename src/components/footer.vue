@@ -81,7 +81,7 @@ export default {
         return {
             footer: {
                 tel: '+86 (0755)2687-3260',
-                add: ['深圳市寶安區新橋街道辦新發工業區新發一路5號2F', '2F, NO.5, XIN-FA FIRST ROAD, XIN-FA INDUSTRIAL AREA, XINQIAO STREET, BAOAN DISTRICT, SHENZHEN, GUANGDONG PROVINCE,CHINA']
+                add: ['深圳市寶安區新橋街道新二社區莊村路64號3F', '3F, No.64, ZHUANGCUN ROAD, XINER COMMUNITY, XINQIAO STREET, BAOAN DISTRICT, SHENZHEN, GUANGDONG PROVINCE,CHINA']
             }
         }
     },
