@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html --public-url /",
+    "build": "parcel build index.html --public-url ./",
     "dep": "rmdir /s /q dist & parcel build index.html --public-url ./",
     "deploy":"npm run build && node ./deploy/ghpages.js",
     "test": "echo \"Error: no test specified\" && exit 1"
