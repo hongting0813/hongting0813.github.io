@@ -18,18 +18,21 @@
 
       <v-spacer />
       <div
+        v-for="(link,index) in menu"
         v-show="width>1060?true:false"
+        :key="index"
       >
-        <button
-          v-for="link in links"
-          :key="link"
-          class="btn draw-border"
-          color="white"
-          text
-          rounded
-        >
-          {{ link }}
-        </button>
+        <router-link :to="link.link">
+          <button
+            class="btn draw-border"
+            color="white"
+            text
+            rounded
+            :to="link.link"
+          >
+            {{ link.title }}
+          </button>
+        </router-link>
       </div>
       <v-spacer />
       <langnav />
@@ -58,10 +61,13 @@
           active-class="gold-text"
         >
           <v-list-item
-            v-for="link in links"
-            :key="link"
+            v-for="(link, index) in menu"
+            :key="index"
+            :to="link.link"
           >
-            <v-list-item-title>{{ link }}</v-list-item-title>
+            <v-list-item-title>
+              {{ link.title }}
+            </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -78,11 +84,11 @@ export default {
     data () {
         return {
             logo: logo,
-            links: [
-                '關於我們',
-                '產品展示',
-                '公司成員',
-                '聯絡我們'
+            menu: [
+                { title: '關於我們', link: '/' },
+                { title: '產品展示', link: '/product' },
+                { title: '公司成員', link: '/member' },
+                { title: '聯絡我們', link: '/contact' }
             ],
             drawer: false,
             group: null
