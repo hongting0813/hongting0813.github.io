@@ -20,6 +20,7 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 })
 
+console.log('hello', process.env.BASE_URL)
 export default router
 // router.beforeEach(async (to, from, next) => {
 //     next()
