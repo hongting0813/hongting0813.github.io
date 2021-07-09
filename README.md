@@ -1,2 +1,0 @@
-# Yineng
-YiNeng company website
