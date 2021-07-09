@@ -56856,7 +56856,175 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/plugins/vuerouter.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/show.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+var _default = {};
+exports.default = _default;
+        var $e02aa9 = exports.default || module.exports;
+      
+      if (typeof $e02aa9 === 'function') {
+        $e02aa9 = $e02aa9.options;
+      }
+    
+        /* template */
+        Object.assign($e02aa9, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-container")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$e02aa9', $e02aa9);
+          } else {
+            api.reload('$e02aa9', $e02aa9);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/member.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+var _default = {};
+exports.default = _default;
+        var $962723 = exports.default || module.exports;
+      
+      if (typeof $962723 === 'function') {
+        $962723 = $962723.options;
+      }
+    
+        /* template */
+        Object.assign($962723, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-container")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$962723', $962723);
+          } else {
+            api.reload('$962723', $962723);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/contact.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+var _default = {};
+exports.default = _default;
+        var $58ac2e = exports.default || module.exports;
+      
+      if (typeof $58ac2e === 'function') {
+        $58ac2e = $58ac2e.options;
+      }
+    
+        /* template */
+        Object.assign($58ac2e, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-container")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$58ac2e', $58ac2e);
+          } else {
+            api.reload('$58ac2e', $58ac2e);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/plugins/vuerouter.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56870,6 +57038,12 @@ var _vueRouter = _interopRequireDefault(require("vue-router"));
 
 var _intro = _interopRequireDefault(require("../components/intro.vue"));
 
+var _show = _interopRequireDefault(require("../components/show.vue"));
+
+var _member = _interopRequireDefault(require("../components/member.vue"));
+
+var _contact = _interopRequireDefault(require("../components/contact.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.use(_vueRouter.default);
@@ -56878,9 +57052,21 @@ var routes = [{
   path: '/',
   name: 'home',
   component: _intro.default
+}, {
+  path: '/product',
+  name: 'product',
+  component: _show.default
+}, {
+  path: '/member',
+  name: 'member',
+  component: _member.default
+}, {
+  path: '/contact',
+  name: 'contact',
+  component: _contact.default
 }];
 var router = new _vueRouter.default({
-  // mode: 'history',
+  mode: 'history',
   routes: routes // short for `routes: routes`
 
 });
@@ -56889,7 +57075,7 @@ var _default = router; // router.beforeEach(async (to, from, next) => {
 // })
 
 exports.default = _default;
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","vue-router":"node_modules/vue-router/dist/vue-router.esm.js","../components/intro.vue":"src/components/intro.vue"}],"node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","vue-router":"node_modules/vue-router/dist/vue-router.esm.js","../components/intro.vue":"src/components/intro.vue","../components/show.vue":"src/components/show.vue","../components/member.vue":"src/components/member.vue","../components/contact.vue":"src/components/contact.vue"}],"node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -59011,6 +59197,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default = {
   components: {
     langnav: _langnav.default
@@ -59018,7 +59210,19 @@ var _default = {
   data: function data() {
     return {
       logo: _logoWord.default,
-      links: ['關於我們', '合作品牌', '公司成員', '聯絡我們'],
+      menu: [{
+        title: '關於我們',
+        link: '/'
+      }, {
+        title: '產品展示',
+        link: '/product'
+      }, {
+        title: '公司成員',
+        link: '/member'
+      }, {
+        title: '聯絡我們',
+        link: '/contact'
+      }],
       drawer: false,
       group: null
     };
@@ -59086,31 +59290,40 @@ exports.default = _default;
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.width > 1060 ? true : false,
-                  expression: "width>1060?true:false"
-                }
-              ]
-            },
-            _vm._l(_vm.links, function(link) {
-              return _c(
-                "button",
-                {
-                  key: link,
-                  staticClass: "btn draw-border",
-                  attrs: { color: "white", text: "", rounded: "" }
-                },
-                [_vm._v("\n        " + _vm._s(link) + "\n      ")]
-              )
-            }),
-            0
-          ),
+          _vm._l(_vm.menu, function(link, index) {
+            return _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.width > 1060 ? true : false,
+                    expression: "width>1060?true:false"
+                  }
+                ],
+                key: index
+              },
+              [
+                _c("router-link", { attrs: { to: link.link } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn draw-border",
+                      attrs: {
+                        color: "white",
+                        text: "",
+                        rounded: "",
+                        to: link.link
+                      }
+                    },
+                    [_vm._v("\n          " + _vm._s(link.title) + "\n        ")]
+                  )
+                ])
+              ],
+              1
+            )
+          }),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
@@ -59134,7 +59347,7 @@ exports.default = _default;
             }
           })
         ],
-        1
+        2
       ),
       _vm._v(" "),
       _c(
@@ -59173,11 +59386,17 @@ exports.default = _default;
                     expression: "group"
                   }
                 },
-                _vm._l(_vm.links, function(link) {
+                _vm._l(_vm.menu, function(link, index) {
                   return _c(
                     "v-list-item",
-                    { key: link },
-                    [_c("v-list-item-title", [_vm._v(_vm._s(link))])],
+                    { key: index, attrs: { to: link.link } },
+                    [
+                      _c("v-list-item-title", [
+                        _vm._v(
+                          "\n            " + _vm._s(link.title) + "\n          "
+                        )
+                      ])
+                    ],
                     1
                   )
                 }),
@@ -59776,7 +59995,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50498" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56732" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
