@@ -62,7 +62,7 @@
   .silver{
     background-image: url('./src/assets/img/bg.jpg')
   }
-  .centerText{
+  .textCenter{
     text-align: center;
   }
   .elementCenter{
@@ -72,7 +72,7 @@
     color:white;
   }
   .bigTitle{
-    font: 700 3.6rem 'cwTeXYen',  sans-serif;
+    font-size: 4vmin;
   }
   .helloxs{
     color:red;

@@ -17,6 +17,15 @@ const opts = {
                 primary: '#ffd700'
             }
         }
+    },
+    breakpoint: {
+        thresholds: {
+            xs: 340,
+            sm: 768,
+            md: 960,
+            lg: 1280
+        },
+        mobileBreakpoint: 'sm'
     }
 }
 

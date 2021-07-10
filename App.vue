@@ -3,26 +3,21 @@
     <headerpage />
     <v-main>
       <!-- 给应用提供合适的间距 -->
-      <v-container fluid>
+      <v-container
+        fluid
+        class="pa-0"
+      >
         <!-- 如果使用 vue-router -->
         <router-view />
       </v-container>
     </v-main>
-    <footerpage />
+    <!-- <footerpage /> -->
   </v-app>
 </template>
 
 <script>
 import Vue from 'vue'
 
-import mmexport001 from './src/assets/img/mmexport1612454841217.jpg'
-import mmexport002 from './src/assets/img/mmexport1612454842972.jpg'
-import mmexport003 from './src/assets/img/mmexport1612454844586.jpg'
-import mmexport004 from './src/assets/img/mmexport1612454847071.jpg'
-import mmexport005 from './src/assets/img/mmexport1612454850384.jpg'
-import mmexport006 from './src/assets/img/mmexport1612454848532.jpg'
-import mmexport007 from './src/assets/img/mmexport1612454853643.jpg'
-import mmexport008 from './src/assets/img/mmexport1612454852058.jpg'
 import { WOW } from 'wowjs'
 import headerpage from './src/components/header.vue'
 import footerpage from './src/components/footer.vue'
@@ -33,22 +28,12 @@ export default Vue.extend({
     data () {
         return {
             bundler: 'Parcel',
-            drawer: false,
-            gallery: [
-                { src: mmexport001 },
-                { src: mmexport002 },
-                { src: mmexport003 },
-                { src: mmexport004 },
-                { src: mmexport005 },
-                { src: mmexport006 },
-                { src: mmexport007 },
-                { src: mmexport008 }
-            ]
+            drawer: false
         }
     },
     computed: {
         isVisible () {
-            return !this.$store.state.isMobile
+            return !this.$vuetify.breakpoint.mobile
         },
         username () {
             // We will see what `params` is shortly
@@ -59,7 +44,7 @@ export default Vue.extend({
         const wow = new WOW({
             boxClass: 'wow',
             animateClass: 'animated',
-            offset: 40,
+            offset: 50,
             mobile: true,
             live: true
         })
@@ -71,11 +56,7 @@ export default Vue.extend({
         getScreen () {
             const clientWidth = document.documentElement.clientWidth || document.body.clientHeight
             this.$store.commit('SET_WIDTH', clientWidth)
-            if (clientWidth < 768) { // 當屏幕小於768時，設置Vuex裏的數據爲true
-                this.$store.commit('SET_MOBLIE', true)
-            } else { // 反之，設置Vuex裏的數據爲false
-                this.$store.commit('SET_MOBLIE', false)
-            }
+            this.$store.commit('SET_HEIGHT', document.documentElement.clientHeight)
         },
         setMobile () {
             // 監聽屏幕

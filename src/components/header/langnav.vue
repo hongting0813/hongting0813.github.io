@@ -26,7 +26,6 @@
 export default {
     computed: {
         width () {
-            console.log(this.$store.state.width)
             return this.$store.state.width
         }
     }

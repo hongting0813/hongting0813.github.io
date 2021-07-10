@@ -2,7 +2,7 @@
   <div>
     <v-app-bar
       app
-      color="rgb(0,0,0,0.8)"
+      color="rgb(0,0,0)"
       :height="isVisible?110:85"
       dark
       width="100%"
@@ -76,7 +76,7 @@
 </template>
 <script>
 import logo from '../assets/img/logo-word.png'
-import langnav from '../components/langnav.vue'
+import langnav from '../components/header/langnav.vue'
 export default {
     components: {
         langnav
@@ -97,10 +97,9 @@ export default {
     },
     computed: {
         isVisible () {
-            return !this.$store.state.isMobile
+            return !this.$vuetify.breakpoint.mobile
         },
         width () {
-            console.log(this.$store.state.width)
             return this.$store.state.width
         }
     },
