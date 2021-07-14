@@ -64,14 +64,14 @@
     >
       <v-row
         justify="center"
-        class="ma-2"
+        class="mt-1 mb-1"
       >
         億能手袋電壓製品廠 Yineng Manufactory
       </v-row>
 
       <v-row
         justify="center"
-        class="ma-2"
+        class="mt-1 mb-1"
       >
         ©{{ new Date().getFullYear() }}&nbsp;—&nbsp;<strong>億能 Yineng</strong>&nbsp;版權所有
       </v-row>
@@ -84,7 +84,7 @@ export default {
     data () {
         return {
             footer: {
-                tel: '+86 (0755)2687-3260',
+                tel: '+86 (0755)2972-3260',
                 add: ['深圳市寶安區新橋街道新二社區莊村路64號3F', '3F, No.64, ZHUANGCUN ROAD, XINER COMMUNITY, XINQIAO STREET, BAOAN DISTRICT, SHENZHEN, GUANGDONG PROVINCE,CHINA']
             }
         }

@@ -180,6 +180,19 @@
             >
               <span class="highlight">自行車防水袋、潛水用防水袋、運動防水背包等。</span>
             </div>
+            <v-btn
+              color="#ffe593aa"
+              class="mt-7"
+              x-large
+              outlined
+              elevation="10"
+              to="/product"
+            >
+              產品展示牆
+              <v-icon class="mx-2">
+                mdi-arrow-right-drop-circle-outline
+              </v-icon>
+            </v-btn>
           </div>
         </v-col>
         <v-col
@@ -204,9 +217,9 @@
       class="pa-5 ma-5"
     >
       <v-row
-        class="fill-height"
         align="center"
         justify="center"
+        style="margin-top:100px"
       >
         <div
           class="bigText  textCenter focusWord wow animate__zoomIn"
@@ -214,6 +227,23 @@
         >
           Yineng<br>期待與您合作
         </div>
+      </v-row>
+      <v-row
+        justify="center"
+      >
+        <v-btn
+          color="#ffe593aa"
+          style="margin-top:100px"
+          x-large
+          outlined
+          elevation="10"
+          to="/contact"
+        >
+          聯絡我們
+          <v-icon class="mx-2">
+            mdi-email
+          </v-icon>
+        </v-btn>
       </v-row>
     </v-sheet>
     <footerpage />
@@ -259,54 +289,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.pic{
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: center center;
-  /* transition: transform 1s ease; */
-}
-/* .pic:hover {
-transform: scale(1.4);
--ms-transform: scale(1.4);
--webkit-transform: scale(1.4);} */
-.picBorder{
-  border-radius: 6px;
-  border-style: solid;
-  border-width: 1vh;
-  border-color:#ffe593aa ;
-}
-.textRight{
-  text-align: right;
-}
-.textLeft{
-  text-align: left;
-}
-.picWord{
-  font-size:4vmin;
-  font-weight: 900;
-  color:white;
-  position: absolute;
-  text-shadow: black 0.1em 0.1em 0.2em;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+<style >
 
-}
-.focusWord{
-  color:#ffe593aa;
-  text-shadow: black 0.1em 0.1em 0.2em;
-  font-size: 6vmin;
-  font-weight: 500;
-}
-.highlight-half{
-  background: linear-gradient(to top, #c0c0c0aa 35%, transparent 35%);
-}
-.highlight{
-  padding: 0 2px;
-  white-space: pre-line;
-  border-radius: 2px;
-  background-color: #c0c0c0aa;
-}
 </style>

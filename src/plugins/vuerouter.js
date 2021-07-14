@@ -17,7 +17,10 @@ const routes = [
 const router = new VueRouter({
     mode: 'history',
     base: '/Yineng',
-    routes // short for `routes: routes`
+    routes, // short for `routes: routes`
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
 })
 
 export default router
