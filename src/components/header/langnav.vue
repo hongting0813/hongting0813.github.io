@@ -1,6 +1,5 @@
 <template>
   <v-btn-toggle
-    v-show="width>1060?true:false"
     dark
     mandatory
   >

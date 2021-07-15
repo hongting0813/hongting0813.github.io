@@ -35,7 +35,7 @@
         </router-link>
       </div>
       <v-spacer />
-      <langnav />
+      <langnav v-show="width>1060?true:false" />
       <v-app-bar-nav-icon
         v-show="width>1060?false:true"
         color="#ffe593aa"
@@ -71,6 +71,13 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
+      <template #append>
+        <div class="pa-2">
+          <center>
+            <langnav />
+          </center>
+        </div>
+      </template>
     </v-navigation-drawer>
   </div>
 </template>
