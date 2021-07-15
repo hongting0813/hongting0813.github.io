@@ -320,6 +320,19 @@
             to work with you in the future!
           </div>
         </div>
+        <div
+          v-if="$store.state.lang=='jp'"
+          class="bigText  textCenter focusWord wow animate__zoomIn"
+          style="font-size:10vmin;"
+        >
+          Yineng
+          <div style="font-size:5vmin;">
+            We hope to have the opportunity
+          </div>
+          <div style="font-size:5vmin;">
+            to work with you in the future!
+          </div>
+        </div>
       </v-row>
       <v-row
         justify="center"
