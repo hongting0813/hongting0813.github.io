@@ -25,7 +25,7 @@
                   <v-icon>
                     mdi-phone
                   </v-icon>
-                  <h4>電話 TEL</h4>
+                  <h4>{{ $t('telephone') }}</h4>
                 </v-row>
                 <v-row justify="center">
                   {{ footer.tel }}
@@ -36,7 +36,7 @@
           <!-- 2 -->
           <v-col
             cols="12"
-            md="3"
+            :md="$store.state.lang=='tw'?3:9"
             :class="($vuetify.breakpoint.mdAndDown?'mt-2':'')"
           >
             <v-row
@@ -47,10 +47,10 @@
                   <v-icon>
                     mdi-map-marker
                   </v-icon>
-                  <h4>地址 address</h4>
+                  <h4>{{ $t('address_title') }}</h4>
                 </v-row>
                 <v-row justify="center">
-                  {{ footer.add[0] }}
+                  {{ $t('address') }}
                 </v-row>
               </v-col>
             </v-row>
@@ -73,7 +73,7 @@
         justify="center"
         class="mt-1 mb-1"
       >
-        ©{{ new Date().getFullYear() }}&nbsp;—&nbsp;<strong>億能 Yineng</strong>&nbsp;版權所有
+        ©{{ new Date().getFullYear() }}&nbsp;&nbsp;<strong>億能 Yineng</strong>
       </v-row>
     </v-col>
   </v-footer>
@@ -84,8 +84,7 @@ export default {
     data () {
         return {
             footer: {
-                tel: '+86 (0755)2972-3260',
-                add: ['深圳市寶安區新橋街道新二社區莊村路64號3F', '3F, No.64, ZHUANGCUN ROAD, XINER COMMUNITY, XINQIAO STREET, BAOAN DISTRICT, SHENZHEN, GUANGDONG PROVINCE,CHINA']
+                tel: '+86 (0755)2972-3260'
             }
         }
     },

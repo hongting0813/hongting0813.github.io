@@ -84,12 +84,6 @@ export default {
     data () {
         return {
             logo: logo,
-            menu: [
-                { title: '關於我們', link: '/' },
-                { title: '產品展示', link: '/product' },
-                { title: '公司成員', link: '/member' },
-                { title: '聯絡我們', link: '/contact' }
-            ],
             drawer: false,
             group: null
 
@@ -101,6 +95,14 @@ export default {
         },
         width () {
             return this.$store.state.width
+        },
+        menu () {
+            return [
+                { title: this.$t('aboutUs'), link: '/' },
+                { title: this.$t('product_photo'), link: '/product' },
+                { title: this.$t('company_member'), link: '/member' },
+                { title: this.$t('contactUs'), link: '/contact' }
+            ]
         }
     },
     watch: {

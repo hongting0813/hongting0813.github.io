@@ -34,6 +34,7 @@
       >
         <v-col md="5">
           <div
+            v-if="$store.state.lang=='tw'"
             class="bigTitle whiteText wow animate__fadeInLeft"
             :class="[$vuetify.breakpoint.lgAndUp? 'textLeft' : 'textCenter']"
           >
@@ -43,6 +44,24 @@
             </div>
             <div>已有<span class="focusWord">20年</span>歷史</div>
             <div>是一家手袋製造工廠</div>
+          </div>
+          <div
+            v-if="$store.state.lang=='en'"
+            class="bigTitle whiteText wow animate__fadeInLeft"
+            :class="[$vuetify.breakpoint.lgAndUp? 'textLeft' : 'textCenter']"
+          >
+            <div>Yineng , a bag manufacturer</div>
+            <div>located in <span class="focusWord">Shenzhen</span>,</div>
+            <div>has more than <span class="focusWord">20</span> years of history.</div>
+          </div>
+          <div
+            v-if="$store.state.lang=='jp'"
+            class="bigTitle whiteText wow animate__fadeInLeft"
+            :class="[$vuetify.breakpoint.lgAndUp? 'textLeft' : 'textCenter']"
+          >
+            <div>Yineng , a bag manufacturer</div>
+            <div>located in <span class="focusWord">Shenzhen</span>,</div>
+            <div>has more than <span class="focusWord">20</span> years of history.</div>
           </div>
         </v-col>
         <v-col
@@ -78,6 +97,7 @@
             justify="center"
           >
             <div
+              v-if="$store.state.lang=='tw'"
               class="bigTitle whiteText wow animate__fadeInRight "
               :class="[$vuetify.breakpoint.lgAndUp ? 'textLeft' : 'textCenter']"
             >
@@ -90,6 +110,24 @@
                 <span class="focusWord">日本</span>
               </div>
               <div>各大品牌的 <span class="focusWord">OEM</span></div>
+            </div>
+            <div
+              v-if="$store.state.lang=='en'"
+              class="bigTitle whiteText wow animate__fadeInRight "
+              :class="[$vuetify.breakpoint.lgAndUp ? 'textLeft' : 'textCenter']"
+            >
+              <div>We have been serving as</div>
+              <div>an <span class="focusWord">OEM</span> for major brands in</div>
+              <div><span class="focusWord">Europe</span>, <span class="focusWord">America</span> and <span class="focusWord">Japan.</span></div>
+            </div>
+            <div
+              v-if="$store.state.lang=='jp'"
+              class="bigTitle whiteText wow animate__fadeInRight "
+              :class="[$vuetify.breakpoint.lgAndUp ? 'textLeft' : 'textCenter']"
+            >
+              <div>We have been serving as</div>
+              <div>an <span class="focusWord">OEM</span> for major brands in</div>
+              <div><span class="focusWord">Europe</span>, <span class="focusWord">America</span> and <span class="focusWord">Japan.</span></div>
             </div>
           </v-row>
         </v-col>
@@ -127,10 +165,27 @@
         justify="center"
       >
         <div
+          v-if="$store.state.lang=='tw'"
           class="bigTitle whiteText wow animate__fadeInDownBig textCenter"
         >
           <div>
             擁有 <span class="focusWord">優良環境</span> 和 <span class="focusWord">資深員工</span>
+          </div>
+        </div>
+        <div
+          v-if="$store.state.lang=='en'"
+          class="bigTitle whiteText wow animate__fadeInDownBig textCenter"
+        >
+          <div>
+            <span class="focusWord">Good Working Environment & Experienced Workers</span>
+          </div>
+        </div>
+        <div
+          v-if="$store.state.lang=='jp'"
+          class="bigTitle whiteText wow animate__fadeInDownBig textCenter"
+        >
+          <div>
+            <span class="focusWord">Good Working Environment & Experienced Workers</span>
           </div>
         </div>
       </v-row>
@@ -171,14 +226,38 @@
             class="bigTitle whiteText wow animate__fadeInLeft"
             :class="[$vuetify.breakpoint.lgAndUp? 'textLeft' : 'textCenter']"
           >
-            <div>
-              製造<span class="focusWord">優質</span>的產品
+            <div v-if="$store.state.lang=='tw'">
+              <div>
+                製造<span class="focusWord">優質</span>的產品
+              </div>
+              <div
+                style="font-size:3vmin;"
+                class="mt-5"
+              >
+                <span class="highlight">自行車防水袋、潛水用防水袋、運動防水背包等。</span>
+              </div>
             </div>
-            <div
-              style="font-size:3vmin;"
-              class="mt-5"
-            >
-              <span class="highlight">自行車防水袋、潛水用防水袋、運動防水背包等。</span>
+            <div v-if="$store.state.lang=='en'">
+              <div>
+                Manufacture <span class="focusWord">quality</span> products
+              </div>
+              <div
+                style="font-size:3vmin;"
+                class="mt-5"
+              >
+                <span class="highlight">Bicycle waterproof bags, scuba diving dry bags, waterproof sport backpacks, etc.</span>
+              </div>
+            </div>
+            <div v-if="$store.state.lang=='jp'">
+              <div>
+                Manufacture <span class="focusWord">quality</span> products
+              </div>
+              <div
+                style="font-size:3vmin;"
+                class="mt-5"
+              >
+                <span class="highlight">Bicycle waterproof bags, scuba diving dry bags, waterproof sport backpacks, etc.</span>
+              </div>
             </div>
             <v-btn
               color="#ffe593aa"
@@ -188,7 +267,7 @@
               elevation="10"
               to="/product"
             >
-              產品展示牆
+              {{ $t('product_pic_wall') }}
               <v-icon class="mx-2">
                 mdi-arrow-right-drop-circle-outline
               </v-icon>
@@ -222,10 +301,24 @@
         style="margin-top:100px"
       >
         <div
+          v-if="$store.state.lang=='tw'"
           class="bigText  textCenter focusWord wow animate__zoomIn"
           style="font-size:10vmin;"
         >
           Yineng<br>期待與您合作
+        </div>
+        <div
+          v-if="$store.state.lang=='en'"
+          class="bigText  textCenter focusWord wow animate__zoomIn"
+          style="font-size:10vmin;"
+        >
+          Yineng
+          <div style="font-size:5vmin;">
+            We hope to have the opportunity
+          </div>
+          <div style="font-size:5vmin;">
+            to work with you in the future!
+          </div>
         </div>
       </v-row>
       <v-row
@@ -239,7 +332,7 @@
           elevation="10"
           to="/contact"
         >
-          聯絡我們
+          {{ $t('contactUs') }}
           <v-icon class="mx-2">
             mdi-email
           </v-icon>

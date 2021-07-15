@@ -7,7 +7,7 @@
         class="focusWord ma-5"
         style="font-size:10vmin;"
       >
-        產品展示牆
+        {{ $t('product_pic_wall') }}
       </div>
     </v-row>
     <v-row>
@@ -52,37 +52,38 @@
           class="text-h5 justify-center"
           :class="$vuetify.breakpoint.mobile?'focusWord':''"
         >
-          圖片顯示
+          {{ $t('display') }}
         </v-card-title>
-        <v-img
-          v-touch="{
-            left: () => nextPic(),
-            right: () => prePic(),
-          }"
-          :src="picwall[index].src"
-          :max-height="$vuetify.breakpoint.mobile?height:height*0.8"
-          contain
-          style="padding:5px"
-        >
-          <v-icon
-            v-show="$vuetify.breakpoint.mobile?false:true"
-            style="position:absolute;left:5%;top:45%;"
-            color="rgb(0,0,0,0.8)"
-            x-large
-            @click="prePic()"
+        <v-card-text>
+          <v-img
+            v-touch="{
+              left: () => nextPic(),
+              right: () => prePic(),
+            }"
+            :src="picwall[index].src"
+            :max-height="$vuetify.breakpoint.mobile?height:height*0.8"
+            contain
           >
-            mdi-arrow-left-drop-circle
-          </v-icon>
-          <v-icon
-            v-show="$vuetify.breakpoint.mobile?false:true"
-            color="rgb(0,0,0,0.8)"
-            style="position:absolute;right:5%;top:45%;"
-            x-large
-            @click="nextPic()"
-          >
-            mdi-arrow-right-drop-circle
-          </v-icon>
-        </v-img>
+            <v-icon
+              v-show="$vuetify.breakpoint.mobile?false:true"
+              style="position:absolute;left:5%;top:45%;"
+              color="rgb(0,0,0,0.8)"
+              x-large
+              @click="prePic()"
+            >
+              mdi-arrow-left-drop-circle
+            </v-icon>
+            <v-icon
+              v-show="$vuetify.breakpoint.mobile?false:true"
+              color="rgb(0,0,0,0.8)"
+              style="position:absolute;right:5%;top:45%;"
+              x-large
+              @click="nextPic()"
+            >
+              mdi-arrow-right-drop-circle
+            </v-icon>
+          </v-img>
+        </v-card-text>
       </v-card>
     </v-dialog>
   </v-container>
