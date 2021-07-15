@@ -35,7 +35,8 @@
         </router-link>
       </div>
       <v-spacer />
-      <langnav v-show="width>1060?true:false" />
+      <langnav v-if="width>1060" />
+      <langnavMobile v-else />
       <v-app-bar-nav-icon
         v-show="width>1060?false:true"
         color="#ffe593aa"
@@ -71,22 +72,16 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
-      <template #append>
-        <div class="pa-2">
-          <center>
-            <langnav />
-          </center>
-        </div>
-      </template>
     </v-navigation-drawer>
   </div>
 </template>
 <script>
 import logo from '../assets/img/logo-word.png'
 import langnav from '../components/header/langnav.vue'
+import langnavMobile from '../components/header/langnavMobile.vue'
 export default {
     components: {
-        langnav
+        langnav, langnavMobile
     },
     data () {
         return {

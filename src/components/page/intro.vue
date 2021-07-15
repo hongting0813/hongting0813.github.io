@@ -59,7 +59,7 @@
             class="bigTitle whiteText wow animate__fadeInLeft"
             :class="[$vuetify.breakpoint.lgAndUp? 'textLeft' : 'textCenter']"
           >
-            <div>Yineng , a bag manufacturer</div>
+            <div>Yineng, a bag manufacturer</div>
             <div>located in <span class="focusWord">Shenzhen</span>,</div>
             <div>has more than <span class="focusWord">20</span> years of history.</div>
           </div>
