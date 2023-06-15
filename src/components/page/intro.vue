@@ -357,14 +357,14 @@
 </template>
 
 <script>
-import pic1 from '../../assets/img/intro/banner.jpg'// banner
-import enviroPng from '../../assets/img/intro/enviro.jpg'// page1
-import worldmap from '../../assets/img/intro/worldmap.jpg'// page2
-import enviro1 from '../../assets/img/environment/1.jpg'// page3
-import enviro2 from '../../assets/img/environment/2.jpg'// page3
-import enviro3 from '../../assets/img/environment/3.jpg'// page3
-import enviro4 from '../../assets/img/environment/4.jpg'// page3
-import productPng from '../../assets/img/intro/product.png'// page4
+import pic1 from '/src/assets/img/intro/banner.jpg'// banner
+import enviroPng from '/src/assets/img/intro/enviro.jpg'// page1
+import worldmap from '/src/assets/img/intro/worldmap.jpg'// page2
+import enviro1 from '/src/assets/img/environment/1.jpg'// page3
+import enviro2 from '/src/assets/img/environment/2.jpg'// page3
+import enviro3 from '/src/assets/img/environment/3.jpg'// page3
+import enviro4 from '/src/assets/img/environment/4.jpg'// page3
+import productPng from '/src/assets/img/intro/product.png'// page4
 import footerpage from '../footer.vue'
 
 export default {

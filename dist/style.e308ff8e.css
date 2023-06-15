@@ -1,0 +1,130 @@
+/*navbtn*/
+  .navbtn{
+    margin: 2% 0% 0% 30%;
+    position: fixed;
+    z-index: 10;
+  }
+  .draw-border {
+    box-shadow: inset 0 0 0 3px #ffe593aa;
+    color: #ffe593aa;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+  }
+  .draw-border::before, .draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 30px 10px;
+  }
+  .draw-border::before {
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+  }
+  .draw-border::after {
+    border-top-width: 3px;
+    border-right-width: 3px;
+  }
+  .draw-border:hover {
+    color: #c0c0c0;
+  }
+  .draw-border:hover::before, .draw-border:hover::after {
+    border-color: #c0c0c0;
+    transition: border-color 0s, width 0.25s, height 0.25s,border-radius 0.25s;
+    width: 100%;
+    height: 100%;
+  }
+  .draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.15s;
+  }
+  .draw-border:hover::after {
+    transition-delay: 0s, 0.15s, 0s;
+  }
+  .btn {
+    background: #000000aa;
+    border: none;
+    cursor: pointer;
+    line-height: 0.5;
+    font: 500 1.2rem 'Noto Sans SC',  normal;
+    padding: 0.5em 1em;
+    letter-spacing: 0.05rem;
+    margin: 0.1em 0.8em;
+    border-radius: 30px 10px;
+  }
+  .btn:focus {
+    outline: 0px dotted #c0c0c0;
+  }
+  .textCenter{
+    text-align: center;
+  }
+  .elementCenter{
+    margin:auto;
+  }
+  .whiteText{
+    color:white;
+  }
+  .bigTitle{
+    font-size: 4vmin;
+  }
+  #langMenu {
+    position: fixed;
+    right: 2.5em;
+    top: 50%;
+    margin-top: -2.5em;
+  }
+  .pic{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    /* transition: transform 1s ease; */
+  }
+  /* .pic:hover {
+  transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -webkit-transform: scale(1.4);} */
+  .picBorder{
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1vh;
+    border-color:#ffe593aa ;
+  }
+  .textRight{
+    text-align: right;
+  }
+  .textLeft{
+    text-align: left;
+  }
+  .picWord{
+    font-size:4vmin;
+    font-weight: 900;
+    color:white;
+    position: absolute;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+  }
+  .focusWord{
+    color:#ffe593aa;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-size: 6vmin;
+    font-weight: 500;
+  }
+  .highlight-half{
+    background: linear-gradient(to top, #c0c0c0aa 35%, transparent 35%);
+  }
+  .highlight{
+    padding: 0 2px;
+    white-space: pre-line;
+    border-radius: 2px;
+    background-color: #c0c0c0aa;
+  }
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */

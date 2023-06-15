@@ -67,7 +67,7 @@
 </template>
 
 <script>
-// import emilyPic from '../../assets/img/member/emily.jpg'
+// import emilyPic from '/src/assets/img/member/emily.jpg'
 export default {
     data () {
         return {

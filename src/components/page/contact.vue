@@ -100,8 +100,8 @@
 </template>
 
 <script>
-import locationPng from '../../assets/img/contact/location.png'
-import lazyPng from '../../assets/img/lazy.png'
+import locationPng from '/src/assets/img/contact/location.png'
+import lazyPng from '/src/assets/img/lazy.png'
 export default {
     data () {
         return {
